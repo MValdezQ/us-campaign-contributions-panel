@@ -5,6 +5,8 @@ This repository contains the public code and documentation for a reproducible pi
 
 Versioned parquet outputs are distributed through Zenodo rather than committed directly to the repository.
 
+**Data archive:** [10.5281/zenodo.19335725](https://doi.org/10.5281/zenodo.19335725)
+
 ---
 
 ## 1. The Dataset
