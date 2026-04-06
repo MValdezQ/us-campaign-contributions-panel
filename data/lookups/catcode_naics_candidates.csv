@@ -1,0 +1,603 @@
+catcode,catname,sector,sector_long,naics3,naics3_name,naics2,n_sic_rows,freq_share,n_candidates,is_only_candidate
+A0000,,,,111,Crop Production,,,1.0,,
+A1000,Crop production & basic processing,Agribusiness,Agribusiness,115,Farm Management Services,11.0,2.0,0.6667,2.0,False
+A1000,Crop production & basic processing,Agribusiness,Agribusiness,111,All Other Miscellaneous Crop Farming,11.0,1.0,0.3333,2.0,False
+A1100,Cotton,Agribusiness,Agribusiness,111,Cotton Farming,11.0,1.0,0.5,2.0,False
+A1100,Cotton,Agribusiness,Agribusiness,115,Cotton Ginning,11.0,1.0,0.5,2.0,False
+A1200,Sugar cane & sugar beets,Agribusiness,Agribusiness,311,Cane Sugar Manufacturing,31.0,3.0,0.75,2.0,False
+A1200,Sugar cane & sugar beets,Agribusiness,Agribusiness,111,Sugarcane Farming,11.0,1.0,0.25,2.0,False
+A1300,Tobacco & Tobacco products,Agribusiness,Agribusiness,312,Tobacco Manufacturing,31.0,4.0,0.6667,3.0,False
+A1300,Tobacco & Tobacco products,Agribusiness,Agribusiness,111,Tobacco Farming,11.0,1.0,0.1667,3.0,False
+A1300,Tobacco & Tobacco products,Agribusiness,Agribusiness,424,Tobacco and Tobacco Product Merchant Wholesalers,42.0,1.0,0.1667,3.0,False
+A1400,"Vegetables, fruits and tree nut",Agribusiness,Agribusiness,111,Potato Farming,11.0,9.0,0.8182,3.0,False
+A1400,"Vegetables, fruits and tree nut",Agribusiness,Agribusiness,311,"Frozen Fruit, Juice, and Vegetable Manufacturing",31.0,1.0,0.0909,3.0,False
+A1400,"Vegetables, fruits and tree nut",Agribusiness,Agribusiness,424,Fresh Fruit and Vegetable Merchant Wholesalers,42.0,1.0,0.0909,3.0,False
+A1500,"Wheat, corn, soybeans and cash grain",Agribusiness,Agribusiness,111,All Other Grain Farming,11.0,5.0,0.625,3.0,False
+A1500,"Wheat, corn, soybeans and cash grain",Agribusiness,Agribusiness,311,Flour Milling,31.0,2.0,0.25,3.0,False
+A1500,"Wheat, corn, soybeans and cash grain",Agribusiness,Agribusiness,424,Grain and Field Bean Merchant Wholesalers,42.0,1.0,0.125,3.0,False
+A1600,"Other commodities (incl rice, peanuts, honey)",Agribusiness,Agribusiness,111,Rice Farming,11.0,1.0,0.5,2.0,False
+A1600,"Other commodities (incl rice, peanuts, honey)",Agribusiness,Agribusiness,311,Rice Milling,31.0,1.0,0.5,2.0,False
+A2000,Milk & dairy producers,Agribusiness,Agribusiness,311,Fluid Milk Manufacturing,31.0,5.0,0.625,4.0,False
+A2000,Milk & dairy producers,Agribusiness,Agribusiness,112,Beef Cattle Ranching and Farming,11.0,1.0,0.125,4.0,False
+A2000,Milk & dairy producers,Agribusiness,Agribusiness,424,Dairy Product (except Dried or Canned) Merchant Wholesalers,42.0,1.0,0.125,4.0,False
+A2000,Milk & dairy producers,Agribusiness,Agribusiness,445,All Other Specialty Food Stores,44.0,1.0,0.125,4.0,False
+A2300,Poultry & eggs,Agribusiness,Agribusiness,112,Broilers and Other Meat Type Chicken Production,11.0,5.0,0.7143,3.0,False
+A2300,Poultry & eggs,Agribusiness,Agribusiness,311,Poultry Processing,31.0,1.0,0.1429,3.0,False
+A2300,Poultry & eggs,Agribusiness,Agribusiness,424,Poultry and Poultry Product Merchant Wholesalers,42.0,1.0,0.1429,3.0,False
+A3000,Livestock,Agribusiness,Agribusiness,112,All Other Animal Production,11.0,6.0,0.6667,3.0,False
+A3000,Livestock,Agribusiness,Agribusiness,115,Support Activities for Animal Production,11.0,2.0,0.2222,3.0,False
+A3000,Livestock,Agribusiness,Agribusiness,424,Livestock Merchant Wholesalers,42.0,1.0,0.1111,3.0,False
+A3100,Animal feed & health products,Agribusiness,Agribusiness,311,Dog and Cat Food Manufacturing,31.0,2.0,1.0,1.0,True
+A3200,Sheep and Wool Producers,Agribusiness,Agribusiness,112,Sheep Farming,11.0,1.0,1.0,1.0,True
+A3300,Feedlots & related livestock services,Agribusiness,Agribusiness,112,Cattle Feedlots,11.0,1.0,1.0,1.0,True
+A3500,Horse breeders,Agribusiness,Agribusiness,112,Horses and Other Equine Production,11.0,1.0,1.0,1.0,True
+A4000,Agricultural services & related industries,Agribusiness,Agribusiness,115,"Soil Preparation, Planting, and Cultivating",11.0,4.0,0.5,4.0,False
+A4000,Agricultural services & related industries,Agribusiness,Agribusiness,424,Farm Supplies Merchant Wholesalers,42.0,2.0,0.25,4.0,False
+A4000,Agricultural services & related industries,Agribusiness,Agribusiness,221,Water Supply and Irrigation Systems,22.0,1.0,0.125,4.0,False
+A4000,Agricultural services & related industries,Agribusiness,Agribusiness,493,Farm Product Warehousing and Storage,49.0,1.0,0.125,4.0,False
+A4100,Agricultural chemicals (fertilizers & pesticides),Agribusiness,Agribusiness,325,Fertilizer (Mixing Only) Manufacturing,32.0,4.0,0.8,2.0,False
+A4100,Agricultural chemicals (fertilizers & pesticides),Agribusiness,Agribusiness,212,Other Chemical and Fertilizer Mineral Mining,21.0,1.0,0.2,2.0,False
+A4200,Farm machinery & equipment,Agribusiness,Agribusiness,332,Saw Blade and Handtool Manufacturing,33.0,1.0,0.5,2.0,False
+A4200,Farm machinery & equipment,Agribusiness,Agribusiness,423,Farm and Garden Machinery and Equipment Merchant,42.0,1.0,0.5,2.0,False
+A4300,,,,112,Animal Production and Aquaculture,,,1.0,,
+A4500,Veterinarians,Agribusiness,Agribusiness,541,Veterinary Services,54.0,2.0,1.0,1.0,True
+A5000,Forestry & Forest Products,Agribusiness,Agribusiness,113,Logging,11.0,1.0,0.25,4.0,False
+A5000,Forestry & Forest Products,Agribusiness,Agribusiness,321,Wood Preservation,32.0,1.0,0.25,4.0,False
+A5000,Forestry & Forest Products,Agribusiness,Agribusiness,423,"Lumber, Plywood, Millwork, and Wood Panel Merchant",42.0,1.0,0.25,4.0,False
+A5200,Paper & pulp mills and paper manufacturing,Agribusiness,Agribusiness,322,Paper (except Newsprint) Mills,32.0,3.0,1.0,1.0,True
+A6000,,,,113,Forestry and Logging,,,1.0,,
+A6500,,,,114,"Fishing, Hunting and Trapping",,,1.0,,
+A8000,Florists & Nursery Services,Agribusiness,Agribusiness,111,Nursery and Tree Production,11.0,1.0,0.25,4.0,False
+A8000,Florists & Nursery Services,Agribusiness,Agribusiness,424,"Flower, Nursery Stock, and Florists' Supplies Merchant",42.0,1.0,0.25,4.0,False
+A8000,Florists & Nursery Services,Agribusiness,Agribusiness,453,Florists,45.0,1.0,0.25,4.0,False
+A8000,Florists & Nursery Services,Agribusiness,Agribusiness,561,Landscaping Services,56.0,1.0,0.25,4.0,False
+B0000,,,,236,Construction of Buildings,,,1.0,,
+B0500,,,,236,Construction of Buildings,,,1.0,,
+B1000,"Public works, industrial & commercial construction",Construction,Construction,236,Industrial Building Construction,23.0,3.0,0.5,2.0,False
+B1000,"Public works, industrial & commercial construction",Construction,Construction,237,"Highway, Street, and Bridge Construction",23.0,3.0,0.5,2.0,False
+B1200,Dredging Contractors,Construction,Construction,237,,23.0,1.0,1.0,1.0,True
+B1500,,,,236,Construction of Buildings,,,1.0,,
+B2000,Residential construction,Construction,Construction,236,New Housing For-Sale Builders,23.0,3.0,1.0,1.0,True
+B2400,Mobile home construction,Construction,Construction,321,Manufactured Home (Mobile Home) Manufacturing,32.0,1.0,1.0,1.0,True
+B3000,Special trade contractors,Construction,Construction,238,Drywall and Insulation Contractors,23.0,11.0,0.7857,3.0,False
+B3000,Special trade contractors,Construction,Construction,237,"Highway, Street, and Bridge Construction",23.0,2.0,0.1429,3.0,False
+B3000,Special trade contractors,Construction,Construction,236,Commercial and Institutional Building Construction,23.0,1.0,0.0714,3.0,False
+B3200,Electrical contractors,Construction,Construction,238,Electrical Contractors and Other Wiring Installation Contractors,23.0,1.0,1.0,1.0,True
+B3400,"Plumbing, heating & air conditioning",Construction,Construction,238,Electrical Contractors and Other Wiring Installation Contractors,23.0,1.0,0.5,2.0,False
+B3400,"Plumbing, heating & air conditioning",Construction,Construction,423,Warm Air Heating and Air-Conditioning Equipment and Supplies,42.0,1.0,0.5,2.0,False
+B3600,Landscaping & Excavation Svcs,Construction,Construction,238,Site Preparation Contractors,23.0,1.0,0.3333,3.0,False
+B3600,Landscaping & Excavation Svcs,Construction,Construction,541,Landscape Architectural Services,54.0,1.0,0.3333,3.0,False
+B3600,Landscaping & Excavation Svcs,Construction,Construction,561,Landscaping Services,56.0,1.0,0.3333,3.0,False
+B4000,"Engineering, architecture & construction mgmt svcs",Construction,Construction,541,,54.0,1.0,1.0,1.0,True
+B4200,Architectural services,Construction,Construction,541,Architectural Services,54.0,1.0,1.0,1.0,True
+B4300,Surveying,Construction,Construction,541,Geophysical Surveying and Mapping Services,54.0,1.0,1.0,1.0,True
+B4400,Engineers - type unknown,Construction,Construction,541,Engineering Services,54.0,1.0,1.0,1.0,True
+B5000,Building materials,Construction,Construction,423,"Lumber, Plywood, Millwork, and Wood Panel Merchant",42.0,2.0,0.4,4.0,False
+B5000,Building materials,Construction,Construction,324,Asphalt Shingle and Coating Materials Manufacturing,32.0,1.0,0.2,4.0,False
+B5000,Building materials,Construction,Construction,326,All Other Plastics Product Manufacturing,32.0,1.0,0.2,4.0,False
+B5000,Building materials,Construction,Construction,327,Clay Building Material and Refractories Manufacturing,32.0,1.0,0.2,4.0,False
+B5100,"Stone, clay, glass & concrete products",Construction,Construction,327,Clay Building Material and Refractories Manufacturing,32.0,13.0,0.619,4.0,False
+B5100,"Stone, clay, glass & concrete products",Construction,Construction,212,Construction Sand and Gravel Mining,21.0,6.0,0.2857,4.0,False
+B5100,"Stone, clay, glass & concrete products",Construction,Construction,324,Asphalt Paving Mixture and Block Manufacturing,32.0,1.0,0.0476,4.0,False
+B5100,"Stone, clay, glass & concrete products",Construction,Construction,423,"Brick, Stone, and Related Construction Material Merchant",42.0,1.0,0.0476,4.0,False
+B5200,Lumber and wood products,Construction,Construction,444,Home Centers,44.0,1.0,1.0,1.0,True
+B5300,Plumbing & pipe products,Construction,Construction,327,Clay Building Material and Refractories Manufacturing,32.0,2.0,0.5,3.0,False
+B5300,Plumbing & pipe products,Construction,Construction,332,Plumbing Fixture Fitting and Trim Manufacturing,33.0,1.0,0.25,3.0,False
+B5300,Plumbing & pipe products,Construction,Construction,423,"Household Appliances, Electric Housewares, and Consumer",42.0,1.0,0.25,3.0,False
+B5400,Other construction-related products,Construction,Construction,327,Clay Building Material and Refractories Manufacturing,32.0,1.0,0.3333,3.0,False
+B5400,Other construction-related products,Construction,Construction,332,Metal Window and Door Manufacturing,33.0,1.0,0.3333,3.0,False
+B5400,Other construction-related products,Construction,Construction,333,Elevator and Moving Stairway Manufacturing,33.0,1.0,0.3333,3.0,False
+B5500,Electrical Supply,Construction,Construction,221,,22.0,1.0,1.0,1.0,True
+B6000,Construction equipment,Construction,Construction,238,Site Preparation Contractors,23.0,1.0,0.3333,3.0,False
+B6000,Construction equipment,Construction,Construction,333,Construction Machinery Manufacturing,33.0,1.0,0.3333,3.0,False
+B6000,Construction equipment,Construction,Construction,423,Construction and Mining (except Oil Well) Machinery and,42.0,1.0,0.3333,3.0,False
+C0000,Communications & Electronics,Communic/Electronics,Communications/Electronics,334,,33.0,1.0,1.0,1.0,True
+C1000,,,,323,Printing and Related Support Activities,,,1.0,,
+C1100,"Book, newspaper & periodical publishing",Communic/Electronics,Communications/Electronics,511,Periodical Publishers,51.0,4.0,0.5714,4.0,False
+C1100,"Book, newspaper & periodical publishing",Communic/Electronics,Communications/Electronics,323,Books Printing,32.0,1.0,0.1429,4.0,False
+C1100,"Book, newspaper & periodical publishing",Communic/Electronics,Communications/Electronics,424,"Book, Periodical, and Newspaper Merchant Wholesalers",42.0,1.0,0.1429,4.0,False
+C1100,"Book, newspaper & periodical publishing",Communic/Electronics,Communications/Electronics,519,News Syndicates,51.0,1.0,0.1429,4.0,False
+C1300,Commercial printing & typesetting,Communic/Electronics,Communications/Electronics,323,Commercial Printing (except Screen and Books),32.0,8.0,1.0,1.0,True
+C1400,Greeting card publishing,Communic/Electronics,Communications/Electronics,323,Commercial Printing (except Screen and Books),32.0,1.0,1.0,1.0,True
+C2000,Entertainment Industry/Broadcast & Motion Pictures,Communic/Electronics,Communications/Electronics,512,,51.0,1.0,1.0,1.0,True
+C2100,Commercial TV & radio stations,Communic/Electronics,Communications/Electronics,515,Radio Networks,51.0,2.0,1.0,1.0,True
+C2200,Cable & satellite TV production,Communic/Electronics,Communications/Electronics,515,Cable and Other Subscription Programming,51.0,1.0,1.0,1.0,True
+C2300,TV production,Communic/Electronics,Communications/Electronics,512,,51.0,1.0,1.0,1.0,True
+C2400,Motion Picture production & distribution,Communic/Electronics,Communications/Electronics,512,Motion Picture and Video Distribution,51.0,2.0,0.5,3.0,False
+C2400,Motion Picture production & distribution,Communic/Electronics,Communications/Electronics,334,"Software and Other Prerecorded Compact Disc, Tape, and",33.0,1.0,0.25,3.0,False
+C2400,Motion Picture production & distribution,Communic/Electronics,Communications/Electronics,423,Other Miscellaneous Durable Goods Merchant Wholesalers,42.0,1.0,0.25,3.0,False
+C2600,Recorded Music & music production,Communic/Electronics,Communications/Electronics,334,"Software and Other Prerecorded Compact Disc, Tape, and",33.0,1.0,1.0,1.0,True
+C2700,Movie Theaters,Communic/Electronics,Communications/Electronics,512,Drive-In Motion Picture Theaters,51.0,2.0,1.0,1.0,True
+C2800,"Bands, orchestras & other live music production",Communic/Electronics,Communications/Electronics,711,Musical Groups and Artists,71.0,1.0,1.0,1.0,True
+C2900,Live theater & other entertainment productions,Communic/Electronics,Communications/Electronics,512,Other Sound Recording Industries,51.0,1.0,1.0,1.0,True
+C4000,,,,517,Telecommunications,,,1.0,,
+C4100,Telephone utilities,Communic/Electronics,Communications/Electronics,517,Wired Telecommunications Carriers,51.0,2.0,1.0,1.0,True
+C4200,Long-distance telephone & telegraph service,Communic/Electronics,Communications/Electronics,517,,51.0,1.0,1.0,1.0,True
+C4300,Cell/wireless service providers,Communic/Electronics,Communications/Electronics,517,,51.0,1.0,1.0,1.0,True
+C4400,Satellite communications,Communic/Electronics,Communications/Electronics,517,,51.0,1.0,1.0,1.0,True
+C4500,Cable distributors & service providers,Communic/Electronics,Communications/Electronics,485,Taxi Service,48.0,1.0,0.5,2.0,False
+C4500,Cable distributors & service providers,Communic/Electronics,Communications/Electronics,517,Wired Telecommunications Carriers,51.0,1.0,0.5,2.0,False
+C4600,Other Communications Services,Communic/Electronics,Communications/Electronics,334,Other Communications Equipment Manufacturing,33.0,3.0,1.0,1.0,True
+C5000,Electronics manufacturing & services,Communic/Electronics,Communications/Electronics,334,"Capacitor, Resistor, Coil, Transformer, and Other Inductor",33.0,8.0,0.7273,3.0,False
+C5000,Electronics manufacturing & services,Communic/Electronics,Communications/Electronics,335,All Other Miscellaneous Electrical Equipment and Component,33.0,2.0,0.1818,3.0,False
+C5000,Electronics manufacturing & services,Communic/Electronics,Communications/Electronics,332,Saw Blade and Handtool Manufacturing,33.0,1.0,0.0909,3.0,False
+C5100,Computer manufacture & services,Communic/Electronics,Communications/Electronics,423,Computer and Computer Peripheral Equipment and Software,42.0,1.0,0.3333,3.0,False
+C5100,Computer manufacture & services,Communic/Electronics,Communications/Electronics,443,Electronics Stores,44.0,1.0,0.3333,3.0,False
+C5100,Computer manufacture & services,Communic/Electronics,Communications/Electronics,532,Office Machinery and Equipment Rental and Leasing,53.0,1.0,0.3333,3.0,False
+C5110,Computer components & accessories,Communic/Electronics,Communications/Electronics,334,Computer Storage Device Manufacturing,33.0,4.0,0.8,2.0,False
+C5110,Computer components & accessories,Communic/Electronics,Communications/Electronics,333,Photographic and Photocopying Equipment Manufacturing,33.0,1.0,0.2,2.0,False
+C5120,Computer software,Communic/Electronics,Communications/Electronics,334,"Software and Other Prerecorded Compact Disc, Tape, and",33.0,1.0,1.0,1.0,True
+C5130,Data processing & computer services,Communic/Electronics,Communications/Electronics,541,Computer Facilities Management Services,54.0,3.0,0.5,3.0,False
+C5130,Data processing & computer services,Communic/Electronics,Communications/Electronics,518,"Data Processing, Hosting, and Related Services",51.0,2.0,0.3333,3.0,False
+C5130,Data processing & computer services,Communic/Electronics,Communications/Electronics,517,Wired Telecommunications Carriers,51.0,1.0,0.1667,3.0,False
+C5200,,,,334,Computer and Electronic Product Manufacturing,,,1.0,,
+C5300,,,,334,Computer and Electronic Product Manufacturing,,,1.0,,
+C5400,Industrial Electronics,Communic/Electronics,Communications/Electronics,335,,33.0,1.0,1.0,1.0,True
+C6000,,,,517,Telecommunications,,,1.0,,
+C6100,,,,518,"Computing Infrastructure Providers, Data Processing",,,1.0,,
+C6200,,,,511,Publishing Industries,,,1.0,,
+C6300,,,,334,Computer and Electronic Product Manufacturing,,,1.0,,
+C6400,,,,334,Computer and Electronic Product Manufacturing,,,1.0,,
+C6500,,,,459,Other Retail Stores,,,1.0,,
+D0000,,,,336,Transportation Equipment Manufacturing,,,1.0,,
+D2000,Defense aerospace contractors,Defense,Defense,336,,33.0,1.0,1.0,1.0,True
+D3000,Defense electronic contractors,Defense,Defense,335,,33.0,1.0,1.0,1.0,True
+D4000,Defense Research & Development,Defense,Defense,541,,54.0,1.0,1.0,1.0,True
+D5000,Defense shipbuilders,Defense,Defense,928,,92.0,1.0,1.0,1.0,True
+D6000,,,,928,National Security and International Affairs,,,1.0,,
+D8000,Ground-based & other weapons systems,Defense,Defense,336,"Military Armored Vehicle, Tank, and Tank Component",33.0,1.0,1.0,1.0,True
+D9000,Defense-related services,Defense,Defense,928,,92.0,1.0,1.0,1.0,True
+E0000,,,,221,Utilities,,,1.0,,
+E1000,Energy production & distribution,Energy/Nat Resource,Energy & Natural Resources,221,Steam and Air-Conditioning Supply,22.0,1.0,1.0,1.0,True
+E1100,Oil & Gas,Energy/Nat Resource,Energy & Natural Resources,486,Pipeline Transportation of Crude Oil,48.0,2.0,1.0,1.0,True
+E1110,,,,221,Utilities,,,1.0,,
+E1120,Independent oil & gas producers,Energy/Nat Resource,Energy & Natural Resources,211,Crude Petroleum and Natural Gas Extraction,21.0,2.0,0.6667,2.0,False
+E1120,Independent oil & gas producers,Energy/Nat Resource,Energy & Natural Resources,523,Miscellaneous Intermediation,52.0,1.0,0.3333,2.0,False
+E1140,Natural Gas transmission & distribution,Energy/Nat Resource,Energy & Natural Resources,221,Natural Gas Distribution,22.0,4.0,0.8,2.0,False
+E1140,Natural Gas transmission & distribution,Energy/Nat Resource,Energy & Natural Resources,486,Pipeline Transportation of Natural Gas,48.0,1.0,0.2,2.0,False
+E1150,"Oilfield service, equipment & exploration",Energy/Nat Resource,Energy & Natural Resources,213,Support Activities for Oil and Gas Operations,21.0,3.0,0.75,2.0,False
+E1150,"Oilfield service, equipment & exploration",Energy/Nat Resource,Energy & Natural Resources,333,Oil and Gas Field Machinery and Equipment Manufacturing,33.0,1.0,0.25,2.0,False
+E1160,Petroleum refining & marketing,Energy/Nat Resource,Energy & Natural Resources,324,All Other Petroleum and Coal Products Manufacturing,32.0,3.0,0.6,2.0,False
+E1160,Petroleum refining & marketing,Energy/Nat Resource,Energy & Natural Resources,424,Petroleum Bulk Stations and Terminals,42.0,2.0,0.4,2.0,False
+E1170,Gasoline service stations,Energy/Nat Resource,Energy & Natural Resources,447,Gasoline Stations with Convenience Stores,44.0,1.0,1.0,1.0,True
+E1180,Fuel oil dealers,Energy/Nat Resource,Energy & Natural Resources,454,Fuel Dealers,45.0,2.0,1.0,1.0,True
+E1190,LPG/Liquid Propane dealers & producers,Energy/Nat Resource,Energy & Natural Resources,454,Fuel Dealers,45.0,1.0,1.0,1.0,True
+E1200,Mining,Energy/Nat Resource,Energy & Natural Resources,423,Coal and Other Mineral and Ore Merchant Wholesalers,42.0,1.0,1.0,1.0,True
+E1210,Coal mining,Energy/Nat Resource,Energy & Natural Resources,212,Anthracite Mining,21.0,3.0,0.75,2.0,False
+E1210,Coal mining,Energy/Nat Resource,Energy & Natural Resources,213,Support Activities for Coal Mining,21.0,1.0,0.25,2.0,False
+E1220,Metal mining & processing,Energy/Nat Resource,Energy & Natural Resources,212,Copper Ore and Nickel Ore Mining,21.0,8.0,0.6667,3.0,False
+E1220,Metal mining & processing,Energy/Nat Resource,Energy & Natural Resources,331,Alumina Refining and Primary Aluminum Production,33.0,3.0,0.25,3.0,False
+E1220,Metal mining & processing,Energy/Nat Resource,Energy & Natural Resources,213,Support Activities for Metal Mining,21.0,1.0,0.0833,3.0,False
+E1230,Non-metallic mining,Energy/Nat Resource,Energy & Natural Resources,212,Clay and Ceramic and Refractory Minerals Mining,21.0,6.0,0.8571,2.0,False
+E1230,Non-metallic mining,Energy/Nat Resource,Energy & Natural Resources,213,Support Activities for Nonmetallic Minerals (except Fuels) Mining,21.0,1.0,0.1429,2.0,False
+E1240,Mining services & equipment,Energy/Nat Resource,Energy & Natural Resources,333,Mining Machinery and Equipment Manufacturing,33.0,1.0,1.0,1.0,True
+E1300,Nuclear energy,Energy/Nat Resource,Energy & Natural Resources,221,,22.0,1.0,1.0,1.0,True
+E1320,"Nuclear plant construction, equipment & svcs",Energy/Nat Resource,Energy & Natural Resources,237,,23.0,1.0,1.0,1.0,True
+E1500,,,,486,Pipeline Transportation,,,1.0,,
+E1600,Electric Power utilities,Energy/Nat Resource,Energy & Natural Resources,221,Hydroelectric Power Generation,22.0,1.0,1.0,1.0,True
+E1610,,,,221,Utilities,,,1.0,,
+E1620,Gas & Electric Utilities,Energy/Nat Resource,Energy & Natural Resources,221,Hydroelectric Power Generation,22.0,2.0,1.0,1.0,True
+E1630,,,,221,Utilities,,,1.0,,
+E1700,Power plant construction & equipment,Energy/Nat Resource,Energy & Natural Resources,423,"Electrical Apparatus and Equipment, Wiring Supplies, and Related",42.0,1.0,1.0,1.0,True
+E2000,"Environmental services, equipment & consulting",Energy/Nat Resource,Energy & Natural Resources,541,,54.0,1.0,1.0,1.0,True
+E3000,Waste management,Energy/Nat Resource,Energy & Natural Resources,562,Hazardous Waste Treatment and Disposal,56.0,2.0,0.6667,2.0,False
+E3000,Waste management,Energy/Nat Resource,Energy & Natural Resources,488,Other Airport Operations,48.0,1.0,0.3333,2.0,False
+E4000,,,,212,Mining (except Oil and Gas),,,1.0,,
+E4100,Fishing,Energy/Nat Resource,Energy & Natural Resources,112,Finfish Farming and Fish Hatcheries,11.0,2.0,0.4,3.0,False
+E4100,Fishing,Energy/Nat Resource,Energy & Natural Resources,114,Finfish Fishing,11.0,2.0,0.4,3.0,False
+E4100,Fishing,Energy/Nat Resource,Energy & Natural Resources,111,All Other Miscellaneous Crop Farming,11.0,1.0,0.2,3.0,False
+E4200,Hunting & wildlife,Energy/Nat Resource,Energy & Natural Resources,114,Hunting and Trapping,11.0,1.0,1.0,1.0,True
+E5000,Water Utilities,Energy/Nat Resource,Energy & Natural Resources,221,Water Supply and Irrigation Systems,22.0,1.0,1.0,1.0,True
+F0000,,,,523,"Securities, Commodity Contracts, and Other Financial",,,1.0,,
+F1000,Banks & lending institutions,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",522,"Financial Transactions Processing, Reserve, and Clearinghouse",52.0,1.0,1.0,1.0,True
+F1100,Commercial banks & bank holding companies,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",522,Commercial Banking,52.0,6.0,0.6667,4.0,False
+F1100,Commercial banks & bank holding companies,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",521,Monetary Authorities-Central Bank,52.0,1.0,0.1111,4.0,False
+F1100,Commercial banks & bank holding companies,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",523,"Trust, Fiduciary, and Custody Activities",52.0,1.0,0.1111,4.0,False
+F1100,Commercial banks & bank holding companies,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",551,Offices of Bank Holding Companies,55.0,1.0,0.1111,4.0,False
+F1200,Savings banks & Savings and Loans,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",522,Savings Institutions,52.0,2.0,1.0,1.0,True
+F1300,Credit unions,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",522,Credit Unions,52.0,2.0,1.0,1.0,True
+F1400,Credit agencies & finance companies,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",522,Credit Card Issuing,52.0,5.0,1.0,1.0,True
+F1410,Student loan companies,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",522,,52.0,1.0,1.0,1.0,True
+F1420,Payday lenders,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",522,,52.0,1.0,1.0,1.0,True
+F2000,"Securities, commodities & investment",Finance/Insur/RealEst,"Finance, Insurance & Real Estate",523,Portfolio Management,52.0,1.0,1.0,1.0,True
+F2100,Security brokers & investment companies,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",523,Investment Banking and Securities Dealing,52.0,3.0,0.6,2.0,False
+F2100,Security brokers & investment companies,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",525,Open-End Investment Funds,52.0,2.0,0.4,2.0,False
+F2110,Discount & Online Brokers,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",523,,52.0,1.0,1.0,1.0,True
+F2200,Commodity brokers/dealers,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",523,Commodity Contracts Dealing,52.0,1.0,1.0,1.0,True
+F2300,Investment banking,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",523,,52.0,1.0,1.0,1.0,True
+F2400,Stock exchanges,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",523,Securities and Commodity Exchanges,52.0,1.0,1.0,1.0,True
+F2500,Venture capital,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",523,,52.0,1.0,1.0,1.0,True
+F2600,Private Equity & Investment Firms,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",523,,52.0,1.0,1.0,1.0,True
+F2700,,,,523,"Securities, Commodity Contracts, and Other Financial",,,1.0,,
+F2800,,,,541,"Professional, Scientific, and Technical Services",,,1.0,,
+F3000,Insurance,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",524,,52.0,1.0,1.0,1.0,True
+F3100,"Insurance companies, brokers & agents",Finance/Insur/RealEst,"Finance, Insurance & Real Estate",524,Direct Property and Casualty Insurance Carriers,52.0,5.0,1.0,1.0,True
+F3200,Accident & health insurance,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",524,Direct Health and Medical Insurance Carriers,52.0,2.0,1.0,1.0,True
+F3300,Life insurance,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",524,Direct Life Insurance Carriers,52.0,1.0,1.0,1.0,True
+F3400,Property & casualty insurance,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",524,Direct Property and Casualty Insurance Carriers,52.0,1.0,1.0,1.0,True
+F4000,,,,531,Real Estate,,,1.0,,
+F4100,Real Estate developers & subdividers,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",237,Land Subdivision,23.0,1.0,0.5,2.0,False
+F4100,Real Estate developers & subdividers,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",525,Other Financial Vehicles,52.0,1.0,0.5,2.0,False
+F4200,Real estate agents,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",531,Lessors of Residential Buildings and Dwellings,53.0,1.0,1.0,1.0,True
+F4300,Title insurance & title abstract offices,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",524,Direct Title Insurance Carriers,52.0,1.0,0.5,2.0,False
+F4300,Title insurance & title abstract offices,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",541,Title Abstract and Settlement Offices,54.0,1.0,0.5,2.0,False
+F4400,Mobile home dealers & parks,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",453,Manufactured (Mobile) Home Dealers,45.0,1.0,0.5,2.0,False
+F4400,Mobile home dealers & parks,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",531,Lessors of Other Real Estate Property,53.0,1.0,0.5,2.0,False
+F4500,Building operators and managers,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",531,Lessors of Residential Buildings and Dwellings,53.0,4.0,0.8,2.0,False
+F4500,Building operators and managers,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",812,Parking Lots and Garages,81.0,1.0,0.2,2.0,False
+F4600,Mortgage bankers and brokers,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",522,Real Estate Credit,52.0,1.0,1.0,1.0,True
+F4700,Other real estate services,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",531,,53.0,1.0,1.0,1.0,True
+F5000,Financial services & consulting,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",541,,54.0,1.0,1.0,1.0,True
+F5100,Accountants,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",541,Offices of Certified Public Accountants,54.0,1.0,1.0,1.0,True
+F5200,Credit reporting services & collection agencies,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",561,Collection Agencies,56.0,2.0,1.0,1.0,True
+F5300,Tax return services,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",541,Tax Preparation Services,54.0,1.0,1.0,1.0,True
+F5500,Other financial services,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",523,,52.0,1.0,1.0,1.0,True
+F7000,Investors,Finance/Insur/RealEst,"Finance, Insurance & Real Estate",523,Commodity Contracts Dealing,52.0,2.0,1.0,1.0,True
+G0000,General commerce,Misc Business,Misc Business,813,,81.0,1.0,1.0,1.0,True
+G1000,General business associations,Misc Business,Misc Business,813,Business Associations,81.0,1.0,1.0,1.0,True
+G1100,Chambers of commerce,Misc Business,Misc Business,813,,81.0,1.0,1.0,1.0,True
+G1200,,,,722,Food Services and Drinking Places,,,1.0,,
+G1300,Pro-business associations,Misc Business,Misc Business,813,,81.0,1.0,1.0,1.0,True
+G1400,,,,722,Food Services and Drinking Places,,,1.0,,
+G2000,,,,722,Food Services and Drinking Places,,,1.0,,
+G2100,Food and kindred products manufacturing,Agribusiness,Agribusiness,311,Soybean and Other Oilseed Processing,31.0,22.0,0.9167,3.0,False
+G2100,Food and kindred products manufacturing,Agribusiness,Agribusiness,111,All Other Miscellaneous Crop Farming,11.0,1.0,0.0417,3.0,False
+G2100,Food and kindred products manufacturing,Agribusiness,Agribusiness,312,Ice Manufacturing,31.0,1.0,0.0417,3.0,False
+G2110,Artificial sweeteners and food additives,Misc Business,Misc Business,325,,32.0,1.0,1.0,1.0,True
+G2200,Confectionery processors & manufacturers,Misc Business,Misc Business,311,Chocolate and Confectionery Manufacturing from Cacao Beans,31.0,2.0,0.6667,2.0,False
+G2200,Confectionery processors & manufacturers,Misc Business,Misc Business,424,Confectionery Merchant Wholesalers,42.0,1.0,0.3333,2.0,False
+G2300,Meat processing & products,Agribusiness,Agribusiness,311,Meat Processed from Carcasses,31.0,3.0,1.0,1.0,True
+G2350,Fish Processing,Misc Business,Misc Business,311,Seafood Product Preparation and Packaging,31.0,2.0,0.6667,2.0,False
+G2350,Fish Processing,Misc Business,Misc Business,424,Fish and Seafood Merchant Wholesalers,42.0,1.0,0.3333,2.0,False
+G2400,Food stores,Agribusiness,Agribusiness,445,Fruit and Vegetable Markets,44.0,3.0,1.0,1.0,True
+G2500,Food wholesalers,Agribusiness,Agribusiness,424,General Line Grocery Merchant Wholesalers,42.0,2.0,0.6667,2.0,False
+G2500,Food wholesalers,Agribusiness,Agribusiness,312,Bottled Water Manufacturing,31.0,1.0,0.3333,2.0,False
+G2600,Beverages (non-alcoholic),Misc Business,Misc Business,311,Coffee and Tea Manufacturing,31.0,1.0,0.5,2.0,False
+G2600,Beverages (non-alcoholic),Misc Business,Misc Business,312,Soft Drink Manufacturing,31.0,1.0,0.5,2.0,False
+G2700,Beverage bottling & distribution,Misc Business,Misc Business,312,,31.0,1.0,1.0,1.0,True
+G2810,Beer,Misc Business,Misc Business,311,Spice and Extract Manufacturing,31.0,1.0,1.0,1.0,True
+G2820,Wine & distilled spirits manufacturing,Misc Business,Misc Business,312,Wineries,31.0,2.0,1.0,1.0,True
+G2840,Liquor stores,Misc Business,Misc Business,445,"Beer, Wine, and Liquor Stores",44.0,1.0,1.0,1.0,True
+G2850,Liquor wholesalers,Misc Business,Misc Business,424,Beer and Ale Merchant Wholesalers,42.0,2.0,1.0,1.0,True
+G2900,Restaurants & drinking establishments,Misc Business,Misc Business,711,Theater Companies and Dinner Theaters,71.0,1.0,0.5,2.0,False
+G2900,Restaurants & drinking establishments,Misc Business,Misc Business,722,Drinking Places (Alcoholic Beverages),72.0,1.0,0.5,2.0,False
+G2910,,,,722,Food Services and Drinking Places,,,1.0,,
+G3000,Wholesale trade,Misc Business,Misc Business,423,Other Miscellaneous Durable Goods Merchant Wholesalers,42.0,2.0,0.4,3.0,False
+G3000,Wholesale trade,Misc Business,Misc Business,424,"Piece Goods, Notions, and Other Dry Goods Merchant",42.0,2.0,0.4,3.0,False
+G3000,Wholesale trade,Misc Business,Misc Business,313,Textile and Fabric Finishing Mills,31.0,1.0,0.2,3.0,False
+G3500,Import/Export services,Misc Business,Misc Business,522,,52.0,1.0,1.0,1.0,True
+G4000,,,,459,Other Retail Stores,,,1.0,,
+G4100,Apparel & accessory stores,Misc Business,Misc Business,448,Children's and Infants' Clothing Stores,44.0,6.0,0.8571,2.0,False
+G4100,Apparel & accessory stores,Misc Business,Misc Business,315,Men’s and Boys’ Cut and Sew Apparel Manufacturing,31.0,1.0,0.1429,2.0,False
+G4200,Consumer electronics & computer stores,Misc Business,Misc Business,441,Automotive Parts and Accessories Stores,44.0,1.0,0.5,2.0,False
+G4200,Consumer electronics & computer stores,Misc Business,Misc Business,443,Electronics Stores,44.0,1.0,0.5,2.0,False
+G4300,"Department, variety & convenience stores",Misc Business,Misc Business,452,All Other General Merchandise Stores,45.0,3.0,1.0,1.0,True
+G4400,Furniture & appliance stores,Misc Business,Misc Business,337,Wood Kitchen Cabinet and Countertop Manufacturing,33.0,1.0,0.5,2.0,False
+G4400,Furniture & appliance stores,Misc Business,Misc Business,443,Household Appliance Stores,44.0,1.0,0.5,2.0,False
+G4500,Hardware & building materials stores,Misc Business,Misc Business,444,Hardware Stores,44.0,2.0,0.6667,2.0,False
+G4500,Hardware & building materials stores,Misc Business,Misc Business,442,Floor Covering Stores,44.0,1.0,0.3333,2.0,False
+G4600,Miscellaneous retail stores,Misc Business,Misc Business,451,Book Stores,45.0,5.0,0.25,11.0,False
+G4600,Miscellaneous retail stores,Misc Business,Misc Business,453,"Gift, Novelty, and Souvenir Stores",45.0,4.0,0.2,11.0,False
+G4600,Miscellaneous retail stores,Misc Business,Misc Business,443,Electronics Stores,44.0,2.0,0.1,11.0,False
+G4600,Miscellaneous retail stores,Misc Business,Misc Business,448,Jewelry Stores,44.0,2.0,0.1,11.0,False
+G4600,Miscellaneous retail stores,Misc Business,Misc Business,311,Nonchocolate Confectionery Manufacturing,31.0,1.0,0.05,11.0,False
+G4600,Miscellaneous retail stores,Misc Business,Misc Business,314,Curtain and Linen Mills,31.0,1.0,0.05,11.0,False
+G4600,Miscellaneous retail stores,Misc Business,Misc Business,327,"Pottery, Ceramics, and Plumbing Fixture Manufacturing",32.0,1.0,0.05,11.0,False
+G4600,Miscellaneous retail stores,Misc Business,Misc Business,339,Surgical Appliance and Supplies Manufacturing,33.0,1.0,0.05,11.0,False
+G4600,Miscellaneous retail stores,Misc Business,Misc Business,441,Automotive Parts and Accessories Stores,44.0,1.0,0.05,11.0,False
+G4600,Miscellaneous retail stores,Misc Business,Misc Business,444,Outdoor Power Equipment Stores,44.0,1.0,0.05,11.0,False
+G4600,Miscellaneous retail stores,Misc Business,Misc Business,445,Meat Markets,44.0,1.0,0.05,11.0,False
+G4700,Catalog & mail order houses,Misc Business,Misc Business,454,Electronic Shopping,45.0,1.0,1.0,1.0,True
+G4800,Direct sales,Misc Business,Misc Business,454,Other Direct Selling Establishments,45.0,1.0,1.0,1.0,True
+G4850,Vending Machine Sales & Services,Misc Business,Misc Business,454,Vending Machine Operators,45.0,1.0,1.0,1.0,True
+G4900,Drug stores,Misc Business,Misc Business,446,Pharmacies and Drug Stores,44.0,1.0,1.0,1.0,True
+G5000,Services,Misc Business,Misc Business,323,Commercial Printing (except Screen and Books),32.0,1.0,0.2,5.0,False
+G5000,Services,Misc Business,Misc Business,532,Formal Wear and Costume Rental,53.0,1.0,0.2,5.0,False
+G5000,Services,Misc Business,Misc Business,624,Child Day Care Services,62.0,1.0,0.2,5.0,False
+G5000,Services,Misc Business,Misc Business,812,Photofinishing Laboratories (except One-Hour),81.0,1.0,0.2,5.0,False
+G5000,Services,Misc Business,Misc Business,814,Private Households,81.0,1.0,0.2,5.0,False
+G5100,Beauty & barber shops,Misc Business,Misc Business,611,Cosmetology and Barber Schools,61.0,2.0,1.0,1.0,True
+G5200,Business services,Misc Business,Misc Business,541,Landscape Architectural Services,54.0,4.0,0.5714,3.0,False
+G5200,Business services,Misc Business,Misc Business,561,Document Preparation Services,56.0,2.0,0.2857,3.0,False
+G5200,Business services,Misc Business,Misc Business,312,Tobacco Manufacturing,31.0,1.0,0.1429,3.0,False
+G5210,Advertising & public relations services,Misc Business,Misc Business,541,Advertising Agencies,54.0,3.0,0.6,3.0,False
+G5210,Advertising & public relations services,Misc Business,Misc Business,323,Commercial Screen Printing,32.0,1.0,0.2,3.0,False
+G5210,Advertising & public relations services,Misc Business,Misc Business,481,Other Nonscheduled Air Transportation,48.0,1.0,0.2,3.0,False
+G5220,Direct mail advertising services,Misc Business,Misc Business,511,Directory and Mailing List Publishers,51.0,1.0,1.0,1.0,True
+G5230,Outdoor advertising services,Misc Business,Misc Business,541,Outdoor Advertising,54.0,1.0,1.0,1.0,True
+G5240,"Commercial photography, art & graphic design",Misc Business,Misc Business,541,Graphic Design Services,54.0,2.0,0.6667,2.0,False
+G5240,"Commercial photography, art & graphic design",Misc Business,Misc Business,481,Other Nonscheduled Air Transportation,48.0,1.0,0.3333,2.0,False
+G5250,Employment agencies,Misc Business,Misc Business,541,Human Resources Consulting Services,54.0,1.0,0.5,2.0,False
+G5250,Employment agencies,Misc Business,Misc Business,561,Temporary Help Services,56.0,1.0,0.5,2.0,False
+G5260,,,,541,"Professional, Scientific, and Technical Services",,,1.0,,
+G5270,Management consultants & services,Misc Business,Misc Business,541,Administrative Management and General Management Consulting,54.0,1.0,1.0,1.0,True
+G5280,Marketing research services,Misc Business,Misc Business,541,,54.0,1.0,1.0,1.0,True
+G5290,Security services,Misc Business,Misc Business,561,Investigation Services,56.0,2.0,1.0,1.0,True
+G5300,Equipment rental & leasing,Misc Business,Misc Business,532,Consumer Electronics and Appliances Rental,53.0,2.0,1.0,1.0,True
+G5400,Funeral services,Misc Business,Misc Business,812,Cemeteries and Crematories,81.0,2.0,1.0,1.0,True
+G5500,Laundries & dry cleaners,Misc Business,Misc Business,812,Drycleaning and Laundry Services (except Coin-Operated),81.0,6.0,0.75,3.0,False
+G5500,Laundries & dry cleaners,Misc Business,Misc Business,561,Carpet and Upholstery Cleaning Services,56.0,1.0,0.125,3.0,False
+G5500,Laundries & dry cleaners,Misc Business,Misc Business,811,Other Personal and Household Goods Repair and Maintenance,81.0,1.0,0.125,3.0,False
+G5600,Miscellaneous repair services,Misc Business,Misc Business,811,Commercial and Industrial Machinery and Equipment (except,81.0,3.0,0.3333,6.0,False
+G5600,Miscellaneous repair services,Misc Business,Misc Business,443,Household Appliance Stores,44.0,2.0,0.2222,6.0,False
+G5600,Miscellaneous repair services,Misc Business,Misc Business,115,Support Activities for Animal Production,11.0,1.0,0.1111,6.0,False
+G5600,Miscellaneous repair services,Misc Business,Misc Business,238,Other Building Equipment Contractors,23.0,1.0,0.1111,6.0,False
+G5600,Miscellaneous repair services,Misc Business,Misc Business,335,Motor and Generator Manufacturing,33.0,1.0,0.1111,6.0,False
+G5600,Miscellaneous repair services,Misc Business,Misc Business,448,Jewelry Stores,44.0,1.0,0.1111,6.0,False
+G5700,Pest control,Misc Business,Misc Business,561,Exterminating and Pest Control Services,56.0,1.0,1.0,1.0,True
+G5800,Physical fitness centers,Misc Business,Misc Business,713,Fitness and Recreational Sports Centers,71.0,1.0,1.0,1.0,True
+G6000,,,,561,Administrative and Support Services,,,1.0,,
+G6100,Amusement/recreation centers,Misc Business,Misc Business,713,Amusement Arcades,71.0,3.0,0.5,4.0,False
+G6100,Amusement/recreation centers,Misc Business,Misc Business,481,Other Nonscheduled Air Transportation,48.0,1.0,0.1667,4.0,False
+G6100,Amusement/recreation centers,Misc Business,Misc Business,487,"Scenic and Sightseeing Transportation, Land",48.0,1.0,0.1667,4.0,False
+G6100,Amusement/recreation centers,Misc Business,Misc Business,611,Fine Arts Schools,61.0,1.0,0.1667,4.0,False
+G6400,"Professional sports, arenas & related equip & svcs",Misc Business,Misc Business,711,Sports Teams and Clubs,71.0,1.0,1.0,1.0,True
+G6500,"Casinos, racetracks & gambling",Misc Business,Misc Business,711,Racetracks,71.0,1.0,1.0,1.0,True
+G6550,,,,561,Administrative and Support Services,,,1.0,,
+G6700,Amusement parks,Misc Business,Misc Business,713,Amusement and Theme Parks,71.0,1.0,1.0,1.0,True
+G6800,Video rental,Misc Business,Misc Business,532,Video Tape and Disc Rental,53.0,1.0,1.0,1.0,True
+G7000,Correctional facilities constr & mgmt/for-profit,Misc Business,Misc Business,922,,92.0,1.0,1.0,1.0,True
+H0000,"Health, Education & Human Resources",Health,Health,541,Graphic Design Services,54.0,1.0,1.0,1.0,True
+H1000,,,,621,Ambulatory Health Care Services,,,1.0,,
+H1100,Physicians,Health,Health,621,Offices of Physicians (except Mental Health Specialists),62.0,1.0,1.0,1.0,True
+H1110,Psychiatrists & psychologists,Health,Health,621,,62.0,1.0,1.0,1.0,True
+H1120,Optometrists & Ophthalmologists,Health,Health,621,Offices of Optometrists,62.0,1.0,1.0,1.0,True
+H1130,Other physician specialists,Health,Health,621,Offices of Physicians (except Mental Health Specialists),62.0,2.0,1.0,1.0,True
+H1400,Dentists,Health,Health,621,Offices of Dentists,62.0,1.0,1.0,1.0,True
+H1500,Chiropractors,Health,Health,621,Offices of Chiropractors,62.0,1.0,1.0,1.0,True
+H1700,Other non-physician health practitioners,Health,Health,621,Offices of Mental Health Practitioners (except Physicians),62.0,1.0,1.0,1.0,True
+H1710,Nurses,Health,Health,621,,62.0,1.0,1.0,1.0,True
+H1750,Pharmacists,Health,Health,621,,62.0,1.0,1.0,1.0,True
+H2000,,,,524,Insurance Carriers and Related Activities,,,1.0,,
+H2100,Hospitals,Health,Health,622,General Medical and Surgical Hospitals,62.0,3.0,1.0,1.0,True
+H2200,Nursing homes,Health,Health,623,Nursing Care Facilities (Skilled Nursing Facilities),62.0,3.0,1.0,1.0,True
+H2300,,,,339,Miscellaneous Manufacturing,,,1.0,,
+H3000,Health care services,Health,Health,623,Nursing Care Facilities (Skilled Nursing Facilities),62.0,1.0,1.0,1.0,True
+H3100,Home care services,Health,Health,621,Home Health Care Services,62.0,1.0,1.0,1.0,True
+H3200,Outpatient health services (incl drug & alcohol),Health,Health,621,Kidney Dialysis Centers,62.0,2.0,1.0,1.0,True
+H3300,Optical services (glasses & contact lenses),Health,Health,339,Ophthalmic Goods Manufacturing,33.0,1.0,1.0,1.0,True
+H3400,Medical laboratories,Health,Health,339,Dental Laboratories,33.0,1.0,0.5,2.0,False
+H3400,Medical laboratories,Health,Health,621,Medical Laboratories,62.0,1.0,0.5,2.0,False
+H3500,,,,621,Ambulatory Health Care Services,,,1.0,,
+H3700,HMOs,Health,Health,621,,62.0,1.0,1.0,1.0,True
+H3800,Mental Health Services,Health,Health,621,,62.0,1.0,1.0,1.0,True
+H3900,,,,621,Ambulatory Health Care Services,,,1.0,,
+H4000,,,,325,Chemical Manufacturing,,,1.0,,
+H4100,Medical Devices & Supplies,Health,Health,334,Electromedical and Electrotherapeutic Apparatus Manufacturing,33.0,2.0,0.2857,6.0,False
+H4100,Medical Devices & Supplies,Health,Health,322,Sanitary Paper Product Manufacturing,32.0,1.0,0.1429,6.0,False
+H4100,Medical Devices & Supplies,Health,Health,332,"Small Arms, Ordnance, and Ordnance Accessories Manufacturing",33.0,1.0,0.1429,6.0,False
+H4100,Medical Devices & Supplies,Health,Health,339,Dental Equipment and Supplies Manufacturing,33.0,1.0,0.1429,6.0,False
+H4100,Medical Devices & Supplies,Health,Health,423,"Medical, Dental, and Hospital Equipment and Supplies Merchant",42.0,1.0,0.1429,6.0,False
+H4100,Medical Devices & Supplies,Health,Health,532,Home Health Equipment Rental,53.0,1.0,0.1429,6.0,False
+H4200,,,,541,"Professional, Scientific, and Technical Services",,,1.0,,
+H4300,Pharmaceutical manufacturing,Health,Health,325,Pharmaceutical Preparation Manufacturing,32.0,4.0,1.0,1.0,True
+H4400,Pharmaceutical wholesale,Health,Health,424,Drugs and Druggists' Sundries Merchant Wholesalers,42.0,1.0,1.0,1.0,True
+H4500,Biotech products & research,Health,Health,541,,54.0,1.0,1.0,1.0,True
+H4600,Nutritional & dietary supplements,Health,Health,446,,44.0,1.0,1.0,1.0,True
+H5000,Education,Other,Other,611,Professional and Management Development Training,61.0,1.0,1.0,1.0,True
+H5100,Schools & colleges,Other,Other,611,"Colleges, Universities, and Professional Schools",61.0,3.0,1.0,1.0,True
+H5150,,,,623,Nursing and Residential Care Facilities,,,1.0,,
+H5170,,,,621,Ambulatory Health Care Services,,,1.0,,
+H5200,"Technical, business and vocational schools & svcs",Other,Other,611,Business and Secretarial Schools,61.0,3.0,1.0,1.0,True
+H5300,,,,622,Hospitals,,,1.0,,
+H6000,Welfare & Social Work,Other,Other,624,Child and Youth Services,62.0,2.0,0.6667,2.0,False
+H6000,Welfare & Social Work,Other,Other,813,Voluntary Health Organizations,81.0,1.0,0.3333,2.0,False
+K0000,,,,541,"Professional, Scientific, and Technical Services",,,1.0,,
+K1000,Attorneys & law firms,Lawyers & Lobbyists,Lawyers & Lobbyists,541,Offices of Lawyers,54.0,1.0,1.0,1.0,True
+K1100,Trial lawyers & law firms,Lawyers & Lobbyists,Lawyers & Lobbyists,541,,54.0,1.0,1.0,1.0,True
+K1200,Corporate lawyers & law firms,Lawyers & Lobbyists,Lawyers & Lobbyists,541,,54.0,1.0,1.0,1.0,True
+K2000,Lobbyists & Public Relations,Lawyers & Lobbyists,Lawyers & Lobbyists,541,,54.0,1.0,1.0,1.0,True
+L0000,Labor Unions,Labor,Labor,813,Labor Unions and Similar Labor Organizations,81.0,1.0,1.0,1.0,True
+L1000,Civil service & government unions,Labor,Labor,813,,81.0,1.0,1.0,1.0,True
+L1100,Federal employees unions,Labor,Labor,813,,81.0,1.0,1.0,1.0,True
+L1200,State & local govt employee unions,Labor,Labor,813,,81.0,1.0,1.0,1.0,True
+L1300,Teachers unions,Labor,Labor,813,,81.0,1.0,1.0,1.0,True
+L1400,Police & firefighters unions & associations,Labor,Labor,922,Fire Protection,92.0,2.0,1.0,1.0,True
+L1500,US Postal Service unions & associations,Labor,Labor,491,Postal Service,49.0,1.0,1.0,1.0,True
+L5000,Other unions,Labor,Labor,813,,81.0,1.0,1.0,1.0,True
+LA100,Agricultural labor unions,Labor,Labor,813,,81.0,1.0,1.0,1.0,True
+LB100,,,,236,Construction of Buildings,,,1.0,,
+LC100,Communications & hi-tech unions,Labor,Labor,334,,33.0,1.0,1.0,1.0,True
+LC150,IBEW (Intl Brotherhood of Electrical Workers),Labor,Labor,238,,23.0,1.0,1.0,1.0,True
+LE100,,,,221,Utilities,,,1.0,,
+LE200,,,,211,Oil and Gas Extraction,,,1.0,,
+LG100,,,,921,"Executive, Legislative, and Other General Government",,,1.0,,
+LG200,,,,921,"Executive, Legislative, and Other General Government",,,1.0,,
+LG400,,,,921,"Executive, Legislative, and Other General Government",,,1.0,,
+LH100,,,,621,Ambulatory Health Care Services,,,1.0,,
+LM100,,,,331,Primary Metal Manufacturing,,,1.0,,
+LM150,Automotive Manufacturing union,Labor,Labor,336,,33.0,1.0,1.0,1.0,True
+LT000,,,,488,Support Activities for Transportation,,,1.0,,
+LT100,,,,611,Educational Services,,,1.0,,
+LT300,Teamsters union,Labor,Labor,813,,81.0,1.0,1.0,1.0,True
+LT400,,,,484,Truck Transportation,,,1.0,,
+LT500,Merchant marine & longshoremen unions,Labor,Labor,488,,48.0,1.0,1.0,1.0,True
+M0000,,,,339,Miscellaneous Manufacturing,,,1.0,,
+M1000,Chemicals,Misc Business,Misc Business,325,Other Basic Inorganic Chemical Manufacturing,32.0,9.0,0.75,4.0,False
+M1000,Chemicals,Misc Business,Misc Business,211,Natural Gas Liquid Extraction,21.0,1.0,0.0833,4.0,False
+M1000,Chemicals,Misc Business,Misc Business,311,Spice and Extract Manufacturing,31.0,1.0,0.0833,4.0,False
+M1000,Chemicals,Misc Business,Misc Business,424,Other Chemical and Allied Products Merchant Wholesalers,42.0,1.0,0.0833,4.0,False
+M1100,Explosives,Misc Business,Misc Business,325,Explosives Manufacturing,32.0,1.0,1.0,1.0,True
+M1300,Household cleansers & chemicals,Misc Business,Misc Business,325,Polish and Other Sanitation Good Manufacturing,32.0,2.0,1.0,1.0,True
+M1400,Manmade fibers,Misc Business,Misc Business,313,Broadwoven Fabric Mills,31.0,2.0,0.5,2.0,False
+M1400,Manmade fibers,Misc Business,Misc Business,325,Artificial and Synthetic Fibers and Filaments Manufacturing,32.0,2.0,0.5,2.0,False
+M1500,Plastics & Rubber processing & products,Misc Business,Misc Business,326,Unlaminated Plastics Profile Shape Manufacturing,32.0,11.0,0.6875,4.0,False
+M1500,Plastics & Rubber processing & products,Misc Business,Misc Business,325,Custom Compounding of Purchased Resins,32.0,3.0,0.1875,4.0,False
+M1500,Plastics & Rubber processing & products,Misc Business,Misc Business,313,Fabric Coating Mills,31.0,1.0,0.0625,4.0,False
+M1500,Plastics & Rubber processing & products,Misc Business,Misc Business,424,Plastics Materials and Basic Forms and Shapes Merchant,42.0,1.0,0.0625,4.0,False
+M1600,"Paints, Solvents & Coatings",Misc Business,Misc Business,325,Paint and Coating Manufacturing,32.0,1.0,0.5,2.0,False
+M1600,"Paints, Solvents & Coatings",Misc Business,Misc Business,424,"Paint, Varnish, and Supplies Merchant Wholesalers",42.0,1.0,0.5,2.0,False
+M1700,Adhesives & Sealants,Misc Business,Misc Business,325,Adhesive Manufacturing,32.0,1.0,1.0,1.0,True
+M2000,Heavy industrial manufacturing,Misc Business,Misc Business,331,"Other Aluminum Rolling, Drawing, and Extruding",33.0,11.0,0.8462,2.0,False
+M2000,Heavy industrial manufacturing,Misc Business,Misc Business,332,Metal Heat Treating,33.0,2.0,0.1538,2.0,False
+M2100,Steel,Misc Business,Misc Business,331,Iron and Steel Pipe and Tube Manufacturing from Purchased,33.0,4.0,0.6667,3.0,False
+M2100,Steel,Misc Business,Misc Business,324,All Other Petroleum and Coal Products Manufacturing,32.0,1.0,0.1667,3.0,False
+M2100,Steel,Misc Business,Misc Business,332,Iron and Steel Forging,33.0,1.0,0.1667,3.0,False
+M2200,Smelting & non-petroleum refining,Misc Business,Misc Business,331,Nonferrous Metal (except Aluminum) Smelting and Refining,33.0,3.0,1.0,1.0,True
+M2250,,,,336,Transportation Equipment Manufacturing,,,1.0,,
+M2300,Industrial/commercial equipment & materials,Misc Business,Misc Business,333,Other Commercial and Service Industry Machinery Manufacturing,33.0,31.0,0.5167,11.0,False
+M2300,Industrial/commercial equipment & materials,Misc Business,Misc Business,335,Carbon and Graphite Product Manufacturing,33.0,7.0,0.1167,11.0,False
+M2300,Industrial/commercial equipment & materials,Misc Business,Misc Business,423,Industrial Machinery and Equipment Merchant Wholesalers,42.0,5.0,0.0833,11.0,False
+M2300,Industrial/commercial equipment & materials,Misc Business,Misc Business,332,All Other Miscellaneous Fabricated Metal Product Manufacturing,33.0,4.0,0.0667,11.0,False
+M2300,Industrial/commercial equipment & materials,Misc Business,Misc Business,334,"Automatic Environmental Control Manufacturing for Residential,",33.0,4.0,0.0667,11.0,False
+M2300,Industrial/commercial equipment & materials,Misc Business,Misc Business,339,Burial Casket Manufacturing,33.0,3.0,0.05,11.0,False
+M2300,Industrial/commercial equipment & materials,Misc Business,Misc Business,314,All Other Miscellaneous Textile Product Mills,31.0,2.0,0.0333,11.0,False
+M2300,Industrial/commercial equipment & materials,Misc Business,Misc Business,316,Leather and Hide Tanning and Finishing,31.0,1.0,0.0167,11.0,False
+M2300,Industrial/commercial equipment & materials,Misc Business,Misc Business,327,"Pottery, Ceramics, and Plumbing Fixture Manufacturing",32.0,1.0,0.0167,11.0,False
+M2300,Industrial/commercial equipment & materials,Misc Business,Misc Business,336,Motor Vehicle Electrical and Electronic Equipment Manufacturing,33.0,1.0,0.0167,11.0,False
+M2300,Industrial/commercial equipment & materials,Misc Business,Misc Business,337,Institutional Furniture Manufacturing,33.0,1.0,0.0167,11.0,False
+M2400,"Recycling of metal, paper, plastics, etc.",Misc Business,Misc Business,423,Recyclable Material Merchant Wholesalers,42.0,1.0,1.0,1.0,True
+M3000,Personal products manufacturing,Misc Business,Misc Business,316,All Other Leather Good and Allied Product Manufacturing,31.0,2.0,1.0,1.0,True
+M3100,Clothing & accessories,Misc Business,Misc Business,314,All Other Miscellaneous Textile Product Mills,31.0,22.0,0.7586,3.0,False
+M3100,Clothing & accessories,Misc Business,Misc Business,313,Textile and Fabric Finishing Mills,31.0,5.0,0.1724,3.0,False
+M3100,Clothing & accessories,Misc Business,Misc Business,423,Sporting and Recreational Goods and Supplies Merchant,42.0,2.0,0.069,3.0,False
+M3200,Shoes & leather products,Misc Business,Misc Business,316,Footwear Manufacturing,31.0,9.0,0.75,3.0,False
+M3200,Shoes & leather products,Misc Business,Misc Business,314,All Other Miscellaneous Textile Product Mills,31.0,2.0,0.1667,3.0,False
+M3200,Shoes & leather products,Misc Business,Misc Business,424,Footwear Merchant Wholesalers,42.0,1.0,0.0833,3.0,False
+M3300,Toiletries & cosmetics,Misc Business,Misc Business,325,Soap and Other Detergent Manufacturing,32.0,1.0,1.0,1.0,True
+M3400,Jewelry,Misc Business,Misc Business,339,Jewelry and Silverware Manufacturing,33.0,2.0,0.5,3.0,False
+M3400,Jewelry,Misc Business,Misc Business,334,Other Measuring and Controlling Device Manufacturing,33.0,1.0,0.25,3.0,False
+M3400,Jewelry,Misc Business,Misc Business,423,"Jewelry, Watch, Precious Stone, and Precious Metal Merchant",42.0,1.0,0.25,3.0,False
+M3500,Toys,Misc Business,Misc Business,336,"Motorcycle, Bicycle, and Parts Manufacturing",33.0,1.0,0.3333,3.0,False
+M3500,Toys,Misc Business,Misc Business,339,"Doll, Toy, and Game Manufacturing",33.0,1.0,0.3333,3.0,False
+M3500,Toys,Misc Business,Misc Business,423,Toy and Hobby Goods and Supplies Merchant Wholesalers,42.0,1.0,0.3333,3.0,False
+M3600,Sporting goods sales & manufacturing,Misc Business,Misc Business,339,Sporting and Athletic Goods Manufacturing,33.0,1.0,0.3333,3.0,False
+M3600,Sporting goods sales & manufacturing,Misc Business,Misc Business,423,Sporting and Recreational Goods and Supplies Merchant,42.0,1.0,0.3333,3.0,False
+M3600,Sporting goods sales & manufacturing,Misc Business,Misc Business,451,Sporting Goods Stores,45.0,1.0,0.3333,3.0,False
+M4000,Household & office products,Misc Business,Misc Business,339,Office Supplies (except Paper) Manufacturing,33.0,5.0,0.3125,8.0,False
+M4000,Household & office products,Misc Business,Misc Business,314,Curtain and Linen Mills,31.0,3.0,0.1875,8.0,False
+M4000,Household & office products,Misc Business,Misc Business,327,"Pottery, Ceramics, and Plumbing Fixture Manufacturing",32.0,3.0,0.1875,8.0,False
+M4000,Household & office products,Misc Business,Misc Business,325,All Other Miscellaneous Chemical Product and Preparation,32.0,1.0,0.0625,8.0,False
+M4000,Household & office products,Misc Business,Misc Business,332,Saw Blade and Handtool Manufacturing,33.0,1.0,0.0625,8.0,False
+M4000,Household & office products,Misc Business,Misc Business,335,Household Cooking Appliance Manufacturing,33.0,1.0,0.0625,8.0,False
+M4000,Household & office products,Misc Business,Misc Business,337,Blind and Shade Manufacturing,33.0,1.0,0.0625,8.0,False
+M4000,Household & office products,Misc Business,Misc Business,423,Office Equipment Merchant Wholesalers,42.0,1.0,0.0625,8.0,False
+M4100,Furniture & wood products,Misc Business,Misc Business,321,Wood Container and Pallet Manufacturing,32.0,14.0,0.5185,5.0,False
+M4100,Furniture & wood products,Misc Business,Misc Business,337,Upholstered Household Furniture Manufacturing,33.0,9.0,0.3333,5.0,False
+M4100,Furniture & wood products,Misc Business,Misc Business,423,Furniture Merchant Wholesalers,42.0,2.0,0.0741,5.0,False
+M4100,Furniture & wood products,Misc Business,Misc Business,333,Other Industrial Machinery Manufacturing,33.0,1.0,0.037,5.0,False
+M4100,Furniture & wood products,Misc Business,Misc Business,336,Motor Vehicle Seating and Interior Trim Manufacturing,33.0,1.0,0.037,5.0,False
+M4200,Office machines,Misc Business,Misc Business,333,Other Commercial and Service Industry Machinery Manufacturing,33.0,2.0,1.0,1.0,True
+M4300,Household appliances,Misc Business,Misc Business,335,Household Laundry Equipment Manufacturing,33.0,3.0,0.5,3.0,False
+M4300,Household appliances,Misc Business,Misc Business,333,Heating Equipment (except Warm Air Furnaces) Manufacturing,33.0,2.0,0.3333,3.0,False
+M4300,Household appliances,Misc Business,Misc Business,423,"Household Appliances, Electric Housewares, and Consumer",42.0,1.0,0.1667,3.0,False
+M5000,Fabricated metal products,Misc Business,Misc Business,332,"Metal Kitchen Cookware, Utensil, Cutlery, and Flatware (except",33.0,22.0,0.7857,5.0,False
+M5000,Fabricated metal products,Misc Business,Misc Business,331,Iron and Steel Mills and Ferroalloy Manufacturing,33.0,3.0,0.1071,5.0,False
+M5000,Fabricated metal products,Misc Business,Misc Business,322,Paper Bag and Coated and Treated Paper Manufacturing,32.0,1.0,0.0357,5.0,False
+M5000,Fabricated metal products,Misc Business,Misc Business,333,Heating Equipment (except Warm Air Furnaces) Manufacturing,33.0,1.0,0.0357,5.0,False
+M5000,Fabricated metal products,Misc Business,Misc Business,423,Metal Service Centers and Other Metal Merchant Wholesalers,42.0,1.0,0.0357,5.0,False
+M5100,Hardware & tools,Misc Business,Misc Business,332,Saw Blade and Handtool Manufacturing,33.0,3.0,0.6,3.0,False
+M5100,Hardware & tools,Misc Business,Misc Business,333,Power-Driven Handtool Manufacturing,33.0,1.0,0.2,3.0,False
+M5100,Hardware & tools,Misc Business,Misc Business,423,Hardware Merchant Wholesalers,42.0,1.0,0.2,3.0,False
+M5200,"Electroplating, polishing & related services",Misc Business,Misc Business,332,"Electroplating, Plating, Polishing, Anodizing, and Coloring",33.0,2.0,1.0,1.0,True
+M5300,Small arms & ammunition,Misc Business,Misc Business,332,"Small Arms, Ordnance, and Ordnance Accessories Manufacturing",33.0,4.0,1.0,1.0,True
+M6000,Electrical lighting products,Misc Business,Misc Business,335,"Commercial, Industrial, and Institutional Electric Lighting Fixture",33.0,4.0,1.0,1.0,True
+M7000,"Paper, glass & packaging materials",Misc Business,Misc Business,322,Other Paperboard Container Manufacturing,32.0,8.0,0.7273,3.0,False
+M7000,"Paper, glass & packaging materials",Misc Business,Misc Business,424,Industrial and Personal Service Paper Merchant Wholesalers,42.0,2.0,0.1818,3.0,False
+M7000,"Paper, glass & packaging materials",Misc Business,Misc Business,314,Textile Bag and Canvas Mills,31.0,1.0,0.0909,3.0,False
+M7100,Paper packaging materials,Misc Business,Misc Business,322,Paper Bag and Coated and Treated Paper Manufacturing,32.0,6.0,1.0,1.0,True
+M7200,Glass products,Misc Business,Misc Business,327,Flat Glass Manufacturing,32.0,4.0,1.0,1.0,True
+M7300,Metal cans & containers,Misc Business,Misc Business,332,Metal Can Manufacturing,33.0,2.0,1.0,1.0,True
+M8000,Textiles & fabrics,Misc Business,Misc Business,313,"Fiber, Yarn, and Thread Mills",31.0,15.0,0.75,3.0,False
+M8000,Textiles & fabrics,Misc Business,Misc Business,314,All Other Miscellaneous Textile Product Mills,31.0,4.0,0.2,3.0,False
+M8000,Textiles & fabrics,Misc Business,Misc Business,333,Other Industrial Machinery Manufacturing,33.0,1.0,0.05,3.0,False
+M9000,Precision instruments,Misc Business,Misc Business,334,Totalizing Fluid Meter and Counting Device Manufacturing,33.0,3.0,1.0,1.0,True
+M9100,Optical instruments & lenses,Misc Business,Misc Business,333,Optical Instrument and Lens Manufacturing,33.0,1.0,0.3333,3.0,False
+M9100,Optical instruments & lenses,Misc Business,Misc Business,339,Surgical Appliance and Supplies Manufacturing,33.0,1.0,0.3333,3.0,False
+M9100,Optical instruments & lenses,Misc Business,Misc Business,423,Ophthalmic Goods Merchant Wholesalers,42.0,1.0,0.3333,3.0,False
+M9200,Photographic equipment & supplies,Misc Business,Misc Business,325,"Photographic Film, Paper, Plate, and Chemical Manufacturing",32.0,1.0,0.5,2.0,False
+M9200,Photographic equipment & supplies,Misc Business,Misc Business,423,Photographic Equipment and Supplies Merchant Wholesalers,42.0,1.0,0.5,2.0,False
+M9300,Clocks & watches,Misc Business,Misc Business,334,Other Measuring and Controlling Device Manufacturing,33.0,1.0,1.0,1.0,True
+T0000,Transportation,Transportation,Transportation,488,Freight Transportation Arrangement,48.0,2.0,1.0,1.0,True
+T1000,Air transport,Transportation,Transportation,481,Nonscheduled Chartered Passenger Air Transportation,48.0,1.0,1.0,1.0,True
+T1100,Airlines,Transportation,Transportation,481,Scheduled Passenger Air Transportation,48.0,1.0,1.0,1.0,True
+T1200,Aircraft manufacturers,Transportation,Transportation,336,Aircraft Manufacturing,33.0,1.0,1.0,1.0,True
+T1300,Aircraft parts & equipment,Transportation,Transportation,332,Fluid Power Valve and Hose Fitting Manufacturing,33.0,1.0,0.5,2.0,False
+T1300,Aircraft parts & equipment,Transportation,Transportation,336,Aircraft Engine and Engine Parts Manufacturing,33.0,1.0,0.5,2.0,False
+T1400,,,,481,Air Transportation,,,1.0,,
+T1500,Air freight,Transportation,Transportation,492,Couriers and Express Delivery Services,49.0,1.0,1.0,1.0,True
+T1600,Aviation services & airports,Transportation,Transportation,488,Air Traffic Control,48.0,1.0,1.0,1.0,True
+T1700,Space vehicles & components,Transportation,Transportation,336,Guided Missile and Space Vehicle Manufacturing,33.0,3.0,1.0,1.0,True
+T2000,"Automotive, Misc",Transportation,Transportation,488,Motor Vehicle Towing,48.0,1.0,0.5,2.0,False
+T2000,"Automotive, Misc",Transportation,Transportation,811,Car Washes,81.0,1.0,0.5,2.0,False
+T2100,Auto manufacturers,Transportation,Transportation,336,Automobile Manufacturing,33.0,1.0,0.5,2.0,False
+T2100,Auto manufacturers,Transportation,Transportation,423,Automobile and Other Motor Vehicle Merchant Wholesalers,42.0,1.0,0.5,2.0,False
+T2200,Truck/Automotive parts & accessories,Transportation,Transportation,336,Motor Vehicle Body Manufacturing,33.0,4.0,0.5714,2.0,False
+T2200,Truck/Automotive parts & accessories,Transportation,Transportation,423,Motor Vehicle Parts (Used) Merchant Wholesalers,42.0,3.0,0.4286,2.0,False
+T2300,"Auto dealers, new & used",Transportation,Transportation,441,New Car Dealers,44.0,2.0,1.0,1.0,True
+T2310,,,,484,Truck Transportation,,,1.0,,
+T2400,Auto repair,Transportation,Transportation,811,"Automotive Body, Paint, and Interior Repair and Maintenance",81.0,6.0,0.8571,2.0,False
+T2400,Auto repair,Transportation,Transportation,326,Tire Retreading,32.0,1.0,0.1429,2.0,False
+T2500,Car rental agencies,Transportation,Transportation,532,Passenger Car Leasing,53.0,3.0,1.0,1.0,True
+T2600,,,,483,,48.0,1.0,1.0,1.0,True
+T3000,Trucking,Transportation,Transportation,484,,48.0,1.0,1.0,1.0,True
+T3100,Trucking companies & services,Transportation,Transportation,484,"General Freight Trucking, Local",48.0,3.0,0.6,2.0,False
+T3100,Trucking companies & services,Transportation,Transportation,488,Other Support Activities for Road Transportation,48.0,2.0,0.4,2.0,False
+T3200,Truck & trailer manufacturers,Transportation,Transportation,336,Motor Vehicle Body Manufacturing,33.0,2.0,0.6667,2.0,False
+T3200,Truck & trailer manufacturers,Transportation,Transportation,332,Other Metal Container Manufacturing,33.0,1.0,0.3333,2.0,False
+T4000,Buses & Taxis,Transportation,Transportation,485,Limousine Service,48.0,2.0,0.6667,2.0,False
+T4000,Buses & Taxis,Transportation,Transportation,488,Other Support Activities for Road Transportation,48.0,1.0,0.3333,2.0,False
+T4100,Bus services,Transportation,Transportation,485,Charter Bus Industry,48.0,4.0,1.0,1.0,True
+T4200,Taxicabs,Transportation,Transportation,485,Taxi Service,48.0,1.0,1.0,1.0,True
+T5000,,,,482,Rail Transportation,,,1.0,,
+T5100,Railroads,Transportation,Transportation,482,Line-Haul Railroads,48.0,1.0,1.0,1.0,True
+T5200,Manufacturers of railroad equipment,Transportation,Transportation,333,Pump and Pumping Equipment Manufacturing,33.0,1.0,1.0,1.0,True
+T5300,Railroad services,Transportation,Transportation,482,Short Line Railroads,48.0,1.0,0.3333,3.0,False
+T5300,Railroad services,Transportation,Transportation,488,Support Activities for Rail Transportation,48.0,1.0,0.3333,3.0,False
+T5300,Railroad services,Transportation,Transportation,531,Lessors of Other Real Estate Property,53.0,1.0,0.3333,3.0,False
+T6000,Sea transport,Transportation,Transportation,713,Marinas,71.0,1.0,1.0,1.0,True
+T6100,Ship building & repair,Transportation,Transportation,336,Boat Building,33.0,2.0,1.0,1.0,True
+T6200,Sea freight & passenger services,Transportation,Transportation,483,Coastal and Great Lakes Freight Transportation,48.0,8.0,0.8,2.0,False
+T6200,Sea freight & passenger services,Transportation,Transportation,488,Navigational Services to Shipping,48.0,2.0,0.2,2.0,False
+T6250,Cruise ships & lines,Transportation,Transportation,483,,48.0,1.0,1.0,1.0,True
+T7000,,,,483,Water Transportation,,,1.0,,
+T7100,Express delivery services,Transportation,Transportation,492,Couriers and Express Delivery Services,49.0,1.0,1.0,1.0,True
+T7200,Warehousing,Misc Business,Misc Business,493,General Warehousing and Storage,49.0,3.0,1.0,1.0,True
+T8000,,,,485,Urban Transit Systems,,,1.0,,
+T8100,"Motorcycles, snowmobiles & other motorized vehicle",Transportation,Transportation,441,"Motorcycle, ATV, and All Other Motor Vehicle Dealers",44.0,2.0,0.6667,2.0,False
+T8100,"Motorcycles, snowmobiles & other motorized vehicle",Transportation,Transportation,336,"Motorcycle, Bicycle, and Parts Manufacturing",33.0,1.0,0.3333,2.0,False
+T8200,Motor homes & camper trailers,Transportation,Transportation,336,Motor Home Manufacturing,33.0,2.0,0.6667,2.0,False
+T8200,Motor homes & camper trailers,Transportation,Transportation,441,Recreational Vehicle Dealers,44.0,1.0,0.3333,2.0,False
+T8300,Pleasure boats,Transportation,Transportation,441,Boat Dealers,44.0,1.0,1.0,1.0,True
+T8400,,,,488,Support Activities for Transportation,,,1.0,,
+T9000,Lodging & tourism,Misc Business,Misc Business,721,RV (Recreational Vehicle) Parks and Campgrounds,72.0,2.0,1.0,1.0,True
+T9100,Hotels & motels,Misc Business,Misc Business,721,Hotels (except Casino Hotels) and Motels,72.0,3.0,1.0,1.0,True
+T9300,,,,488,Support Activities for Transportation,,,1.0,,
+T9400,Travel agents,Misc Business,Misc Business,561,Tour Operators,56.0,2.0,0.6667,2.0,False
+T9400,Travel agents,Misc Business,Misc Business,488,All Other Support Activities for Transportation,48.0,1.0,0.3333,2.0,False
+X0000,Other,Other,Other,813,Religious Organizations,81.0,1.0,1.0,1.0,True
+X3000,Civil servant/public employee,Other,Other,921,Executive Offices,92.0,5.0,0.2381,9.0,False
+X3000,Civil servant/public employee,Other,Other,923,Administration of Education Programs,92.0,4.0,0.1905,9.0,False
+X3000,Civil servant/public employee,Other,Other,926,Administration of General Economic Programs,92.0,4.0,0.1905,9.0,False
+X3000,Civil servant/public employee,Other,Other,924,Administration of Air and Water Resource and Solid Waste,92.0,2.0,0.0952,9.0,False
+X3000,Civil servant/public employee,Other,Other,925,Administration of Housing Programs,92.0,2.0,0.0952,9.0,False
+X3000,Civil servant/public employee,Other,Other,488,Air Traffic Control,48.0,1.0,0.0476,9.0,False
+X3000,Civil servant/public employee,Other,Other,922,"Other Justice, Public Order, and Safety Activities",92.0,1.0,0.0476,9.0,False
+X3000,Civil servant/public employee,Other,Other,927,Space Research and Technology,92.0,1.0,0.0476,9.0,False
+X3000,Civil servant/public employee,Other,Other,928,International Affairs,92.0,1.0,0.0476,9.0,False
+X3200,Courts & Justice System,Other,Other,922,Correctional Institutions,92.0,3.0,1.0,1.0,True
+X4000,Non-Profits,Other,Other,541,Research and Development in Biotechnology,54.0,1.0,0.5,2.0,False
+X4000,Non-Profits,Other,Other,813,Grantmaking Foundations,81.0,1.0,0.5,2.0,False
+X4200,"Museums, art galleries, libraries, etc.",Other,Other,712,Museums,71.0,2.0,0.6667,2.0,False
+X4200,"Museums, art galleries, libraries, etc.",Other,Other,519,Libraries and Archives,51.0,1.0,0.3333,2.0,False
+X5000,Military,Other,Other,928,National Security,92.0,1.0,1.0,1.0,True
+A7000,Agriculture misc,Agribusiness,Agribusiness,111,Crop Production,11.0,1,1.0,1.0,True
+C5140,Computer software and services,Communic/Electronics,Communications/Electronics,518,"Data Processing, Hosting, and Related Services",51.0,1,1.0,1.0,True
+C5150,Video games and multimedia,Communic/Electronics,Communications/Electronics,511,Publishing Industries,51.0,1,1.0,1.0,True
+E1510,Solar energy,Energy/Nat Resource,Energy and Natural Resources,221,Utilities,22.0,1,1.0,1.0,True
+E1520,Wind energy,Energy/Nat Resource,Energy and Natural Resources,221,Utilities,22.0,1,1.0,1.0,True
+E1530,Biofuels and alternative energy,Energy/Nat Resource,Energy and Natural Resources,325,Chemical Manufacturing,32.0,1,1.0,1.0,True
+F5555,Other financial services,Finance/Insur/RealEst,Finance Insurance and Real Estate,522,Credit Intermediation and Related Activities,52.0,1,1.0,1.0,True
+F5600,Financial technology and payments,Finance/Insur/RealEst,Finance Insurance and Real Estate,522,Credit Intermediation and Related Activities,52.0,1,1.0,1.0,True
+G2800,Beer wine and liquor,Agribusiness,Agribusiness,312,Beverage and Tobacco Product Manufacturing,31.0,1,1.0,1.0,True
+G6270,Recreation and entertainment,Misc Business,Misc Business,713,"Amusement, Gambling, and Recreation Industries",71.0,1,1.0,1.0,True
+H5400,Education,Health,Health,611,Educational Services,61.0,1,1.0,1.0,True
+H5500,Education services,Health,Health,611,Educational Services,61.0,1,1.0,1.0,True
+T4300,Ground transportation and rideshare,Transportation,Transportation,485,Transit and Ground Passenger Transportation,48.0,1,0.7,2.0,False
+T4300,Ground transportation and rideshare,Transportation,Transportation,492,Couriers and Messengers,49.0,1,0.3,2.0,False
+G2860,Cannabis and marijuana industry,Misc Business,Misc Business,459,Miscellaneous Retailers,45.0,1,0.6,3.0,False
+G2860,Cannabis and marijuana industry,Misc Business,Misc Business,111,Crop Production,11.0,1,0.25,3.0,False
+G2860,Cannabis and marijuana industry,Misc Business,Misc Business,325,Chemical Manufacturing,32.0,1,0.15,3.0,False
+H4700,Pharmaceutical cannabis,Health,Health,325,Chemical Manufacturing,32.0,1,0.55,3.0,False
+H4700,Pharmaceutical cannabis,Health,Health,459,Miscellaneous Retailers,45.0,1,0.3,3.0,False
+H4700,Pharmaceutical cannabis,Health,Health,111,Crop Production,11.0,1,0.15,3.0,False

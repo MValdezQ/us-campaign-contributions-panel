@@ -1,0 +1,24 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data files
+data/raw/
+data/clean/
+data/derived/
+output/*.parquet
+
+# Keep only the logic lookups
+!data/lookups/*.csv
+!data/lookups/*.parquet
+
+# Environments
+.env
+.venv
+env/
+venv/
+
+# Local session data
+.claude/
+.vscode/
