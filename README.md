@@ -100,6 +100,6 @@ The repository code is intended to be released under the Apache License 2.0.
 This project would not have been possible without OpenSecrets and the Center for Responsive Politics. Their public campaign-finance data infrastructure, coding work, and documentation are foundational to the entire pipeline.
 
 - OpenSecrets: [opensecrets.org](https://www.opensecrets.org/)
-- OpenSecrets OpenData User's Guide: [local copy](documentation/UserGuide_OpenSecrets.pdf) and [official PDF](https://www.opensecrets.org/open-data/UserGuide.pdf)
+- OpenSecrets OpenData User's Guide: [local copy](documentation/UserGuide_OpenSecrets.pdf)
 - If you use this repository and find it valuable, please consider supporting OpenSecrets directly: [Donate to OpenSecrets](https://www.opensecrets.org/donate)
 
