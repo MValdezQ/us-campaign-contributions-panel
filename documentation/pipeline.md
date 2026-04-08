@@ -10,6 +10,9 @@ campaign-contribution panel. A short summary appears in the repository
 
 The following decisions govern how data is classified and processed within this pipeline. These rules ensure a consistent longitudinal panel across 32+ years of election cycles.
 
+Primary coding reference for `RecipCode`/`RealCode`: OpenSecrets OpenData User's Guide
+<https://www.opensecrets.org/open-data/UserGuide.pdf>
+
 ### Data Sources
 We use **both PAC and individual contributions**:
 - PACs represent organized, firm-level political spending.
@@ -25,12 +28,16 @@ Contributions are tagged with a "Nature" code based on Center for Responsive Pol
 | B | Business | Core industrial political activity |
 | I | Ideological | Support for issue-based organizations |
 | L | Labor | Labor union political activity |
+| O | Other | Residual non-business / non-labor / non-ideological bucket |
+| U | Unknown | Unclassified residual bucket |
 | P | Political | Party/Leadership committee funding |
 
 Nature is determined based on the donor's context for individuals and the recipient's type for PACs:
 
 - **PACs**: Derived from the second character of `RecipCode` in the committees table (B/L/I/O/U).
 - **Individuals**: Derived from the first character of `RealCode`.
+
+Important: `nature = O` means `Other` in this harmonized coding. It does **not** mean `Open Seat`; `O = Open Seat` applies only to the separate `recip_incumbent` field.
 
 ### Direct vs Indirect (DI)
 - **Direct (D)**: Contributions made to a candidate or their committee.

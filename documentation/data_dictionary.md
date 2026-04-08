@@ -2,7 +2,9 @@
 
 This document describes the schema and usage for the two primary datasets produced by this pipeline.
 
-**Last Updated:** 2026-03-31 (Stage 8 Geographic Panel Fix)
+**Last Updated:** 2026-04-08 (Nature code clarification)
+
+**Primary coding reference:** OpenSecrets OpenData User's Guide (official CRP/OpenSecrets field definitions): <https://www.opensecrets.org/open-data/UserGuide.pdf>
 
 ---
 
@@ -24,7 +26,7 @@ This document describes the schema and usage for the two primary datasets produc
 | `naics3` | str | 3-digit NAICS industry code | Unclassifiable (ideology, party, lobbying) |
 | `naics3_name` | str | NAICS-3 industry descriptor | When naics3 is NULL |
 | `naics_source` | str | How NAICS was assigned: `org_level` (entity resolution) or `realcode` (donation category) | When naics3 is NULL |
-| `nature` | str | Donor type: `B` (Business), `L` (Labor Union), `I` (Ideology/PAC), `P` (Party) | Rare |
+| `nature` | str | Harmonized contribution-nature code: `B` (Business), `L` (Labor Union), `I` (Ideological), `O` (Other), `U` (Unknown), `P` (Party/leadership committee stream) | Rare |
 | `DI` | str | Individual/PAC indicator for FEC source | Rare |
 | `total_amount` | float | Sum of contributions to this recipient in $dollars (may be negative = refund) | Never NULL |
 | `recip_id` | str | FEC Committee or Candidate ID | Never NULL |
@@ -37,6 +39,13 @@ This document describes the schema and usage for the two primary datasets produc
 - **NAICS Coverage:** ~67% of records have valid NAICS-3 codes. Remaining 33% are contributions to ideology orgs, party committees, lobbying groups, etc.
 - **Negative Amounts:** Occasional refunds appear as negative contributions.
 - **Industry Mapping:** Individuals auto-classified by "real code" (FEC donation category). Top 13K organizations via LLM consensus (Stage 5).
+
+### Nature Code Note
+- `nature` is a harmonized field, not a raw OpenSecrets field copied unchanged from one source table.
+- On the PAC/outside-group side, `B/L/I/O/U` correspond to the second character of OpenSecrets `RecipCode`, where `O` means `Other` and `U` means `Unknown`.
+- On the individual side, the same harmonized buckets are derived from OpenSecrets `RealCode` prefixes in the pipeline.
+- `P` is used in this project for party/leadership-committee style flows so that party-coded money is separated from the BLIOU buckets.
+- Do not confuse `nature = O` with `recip_incumbent = O`; the former means `Other`, while the latter means `Open Seat`.
 
 ---
 
