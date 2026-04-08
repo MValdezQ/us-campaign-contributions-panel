@@ -10,8 +10,7 @@ campaign-contribution panel. A short summary appears in the repository
 
 The following decisions govern how data is classified and processed within this pipeline. These rules ensure a consistent longitudinal panel across 32+ years of election cycles.
 
-Primary coding reference for `RecipCode`/`RealCode`: OpenSecrets OpenData User's Guide
-<https://www.opensecrets.org/open-data/UserGuide.pdf>
+Primary coding reference for `RecipCode`/`RealCode`: [OpenSecrets OpenData User's Guide (local copy)](./UserGuide_OpenSecrets.pdf) and the [official OpenSecrets PDF](https://www.opensecrets.org/open-data/UserGuide.pdf)
 
 ### Data Sources
 We use **both PAC and individual contributions**:

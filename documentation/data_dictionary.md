@@ -4,7 +4,7 @@ This document describes the schema and usage for the two primary datasets produc
 
 **Last Updated:** 2026-04-08 (Nature code clarification)
 
-**Primary coding reference:** OpenSecrets OpenData User's Guide (official CRP/OpenSecrets field definitions): <https://www.opensecrets.org/open-data/UserGuide.pdf>
+**Primary coding reference:** [OpenSecrets OpenData User's Guide (local copy)](./UserGuide_OpenSecrets.pdf) and the [official OpenSecrets PDF](https://www.opensecrets.org/open-data/UserGuide.pdf)
 
 ---
 

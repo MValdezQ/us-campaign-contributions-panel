@@ -94,3 +94,12 @@ Versioned parquet files are published through Zenodo. The repository itself cont
 ## 7. License
 The repository code is intended to be released under the Apache License 2.0.
 
+---
+
+## 8. Acknowledgment
+This project would not have been possible without OpenSecrets and the Center for Responsive Politics. Their public campaign-finance data infrastructure, coding work, and documentation are foundational to the entire pipeline.
+
+- OpenSecrets: [opensecrets.org](https://www.opensecrets.org/)
+- OpenSecrets OpenData User's Guide: [local copy](documentation/UserGuide_OpenSecrets.pdf) and [official PDF](https://www.opensecrets.org/open-data/UserGuide.pdf)
+- If you use this repository and find it valuable, please consider supporting OpenSecrets directly: [Donate to OpenSecrets](https://www.opensecrets.org/donate)
+
