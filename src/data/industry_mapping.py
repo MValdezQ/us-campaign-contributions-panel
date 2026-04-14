@@ -15,6 +15,7 @@ Pipeline Stage: 6 (Industry Mapping)
 """
 
 import argparse
+import os
 import sys
 from pathlib import Path
 import duckdb
@@ -25,17 +26,18 @@ LOOKUPS_DIR = DATA_DIR / "lookups"
 DERIVED_DIR = DATA_DIR / "derived"
 CLEAN_DIR = DATA_DIR / "clean"
 
-NAICS_ASSIGNMENT_PATH = LOOKUPS_DIR / "org_naics_assignment.csv"
+DEFAULT_NAICS_ASSIGNMENT_PATH = LOOKUPS_DIR / "org_naics_assignment_validated_v1001.csv"
 ORG_ALIASES_PATH = LOOKUPS_DIR / "org_aliases_top_13k_enhanced.parquet"
 CATCODE_NAICS_PATH = LOOKUPS_DIR / "catcode_naics_candidates.csv"
+NAICS_ASSIGNMENT_ENV_VAR = "ORG_NAICS_ASSIGNMENT_PATH"
 
 # All even-year cycles 1990-2022 (stored as 2-digit: 90, 92, ..., 0, 2, ..., 22)
 ALL_CYCLES = [90, 92, 94, 96, 98, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22]
 
 
-def validate_inputs():
+def validate_inputs(naics_assignment_path: Path):
     for path, label in [
-        (NAICS_ASSIGNMENT_PATH, "org_naics_assignment.csv"),
+        (naics_assignment_path, naics_assignment_path.name),
         (ORG_ALIASES_PATH, "org_aliases_top_13k_enhanced.parquet"),
         (CATCODE_NAICS_PATH, "catcode_naics_candidates.csv"),
     ]:
@@ -45,7 +47,16 @@ def validate_inputs():
     print("[OK] All required lookup files found")
 
 
-def map_indivs(cycle: int) -> bool:
+def resolve_lookup_path(path_value: str | None) -> Path:
+    if not path_value:
+        return DEFAULT_NAICS_ASSIGNMENT_PATH
+    candidate = Path(path_value).expanduser()
+    if not candidate.is_absolute():
+        candidate = PROJECT_ROOT / candidate
+    return candidate.resolve()
+
+
+def map_indivs(cycle: int, suffix: str = "", naics_assignment_path: Path = DEFAULT_NAICS_ASSIGNMENT_PATH) -> bool:
     """
     Enrich indivs_agg with NAICS via RealCode + org-level override.
 
@@ -53,17 +64,18 @@ def map_indivs(cycle: int) -> bool:
     Override: i.Orgname  -> org_aliases -> org_id   -> org_naics_assignment      -> naics3
     """
     indivs_path = DERIVED_DIR / f"{cycle:02d}" / "indivs_agg.parquet"
-    output_path = DERIVED_DIR / f"{cycle:02d}" / "indivs_agg_enriched.parquet"
+    output_path = DERIVED_DIR / f"{cycle:02d}" / f"indivs_agg_enriched{suffix}.parquet"
 
     if not indivs_path.exists():
         print(f"  [SKIP] indivs_agg.parquet not found")
         return False
 
-    naics_path = str(NAICS_ASSIGNMENT_PATH).replace("\\", "/")
+    naics_path = str(naics_assignment_path).replace("\\", "/")
     org_aliases_path = str(ORG_ALIASES_PATH).replace("\\", "/")
     catcode_path = str(CATCODE_NAICS_PATH).replace("\\", "/")
     in_path = str(indivs_path).replace("\\", "/")
     out_path = str(output_path).replace("\\", "/")
+    final_out_path = str(output_path).replace("\\", "/")
 
     con = duckdb.connect()
 
@@ -83,7 +95,19 @@ def map_indivs(cycle: int) -> bool:
             org_naics AS (
                 SELECT org_id,
                        PRINTF('%d', CAST(assigned_naics3 AS INTEGER)) as assigned_naics3,
-                       assigned_naics3_name
+                       assigned_naics3_name,
+                       assignment_method as org_assignment_method,
+                       assignment_confidence as org_assignment_confidence,
+                       NULLIF(llm_consensus, '') as org_llm_consensus,
+                       llm_rounds as org_llm_rounds,
+                       top_realcode as org_top_realcode,
+                       top_realcode_share as org_top_realcode_share,
+                       CASE
+                           WHEN assignment_method IN ('deterministic', 'hardcoded') THEN 'TIER1'
+                           WHEN assignment_method IN ('llm_assigned', 'manual_override', 'validation_override') THEN 'TIER2'
+                           WHEN assignment_method IN ('special_code', 'no_realcode', 'unknown') THEN 'TIER3'
+                           ELSE NULL
+                       END as org_assignment_tier
                 FROM read_csv('{naics_path}')
                 WHERE assigned_naics3 IS NOT NULL
                   AND TRY_CAST(assigned_naics3 AS INTEGER) >= 100
@@ -104,6 +128,13 @@ def map_indivs(cycle: int) -> bool:
                 -- override: org-level NAICS (for top-13k)
                 on_.assigned_naics3 as org_naics3,
                 on_.assigned_naics3_name as org_naics3_name,
+                on_.org_assignment_method,
+                on_.org_assignment_confidence,
+                on_.org_llm_consensus,
+                on_.org_llm_rounds,
+                on_.org_assignment_tier,
+                on_.org_top_realcode,
+                on_.org_top_realcode_share,
                 -- final: prefer org-level, fallback to realcode
                 COALESCE(on_.assigned_naics3, bc.naics3) as naics3,
                 COALESCE(on_.assigned_naics3_name, bc.naics3_name) as naics3_name,
@@ -111,7 +142,16 @@ def map_indivs(cycle: int) -> bool:
                     WHEN on_.assigned_naics3 IS NOT NULL THEN 'org_level'
                     WHEN bc.naics3 IS NOT NULL THEN 'realcode'
                     ELSE NULL
-                END as naics_source
+                END as naics_source,
+                CASE
+                    WHEN on_.assigned_naics3 IS NOT NULL AND on_.org_assignment_method = 'llm_assigned' AND on_.org_llm_consensus IS NOT NULL
+                        THEN 'org_level:llm_assigned:' || on_.org_llm_consensus
+                    WHEN on_.assigned_naics3 IS NOT NULL
+                        THEN 'org_level:' || on_.org_assignment_method
+                    WHEN bc.naics3 IS NOT NULL
+                        THEN 'realcode:best_freq_share'
+                    ELSE NULL
+                END as naics_lineage
             FROM read_parquet('{in_path}') i
             -- org-level override lookup
             LEFT JOIN aliases al
@@ -134,7 +174,7 @@ def map_indivs(cycle: int) -> bool:
             SUM(CASE WHEN naics3 IS NOT NULL THEN total_amount END) as naics_dollars,
             COUNT(CASE WHEN naics_source = 'org_level' THEN 1 END) as org_level_count,
             COUNT(CASE WHEN naics_source = 'realcode'  THEN 1 END) as realcode_count
-        FROM read_parquet('{out_path}')
+        FROM read_parquet('{final_out_path}')
     """).fetch_df()
 
     s = stats.iloc[0]
@@ -144,11 +184,12 @@ def map_indivs(cycle: int) -> bool:
     print(f"        via org_level: {s['org_level_count']:>12,.0f}")
     print(f"        via realcode:  {s['realcode_count']:>12,.0f}")
     print(f"    - $ coverage:      {100*s['naics_dollars']/s['total_dollars']:>5.1f}%")
-    print(f"    Saved: indivs_agg_enriched.parquet")
+    print(f"    Saved: {output_path.name}")
+    con.close()
     return True
 
 
-def map_pacs(cycle: int) -> bool:
+def map_pacs(cycle: int, suffix: str = "", naics_assignment_path: Path = DEFAULT_NAICS_ASSIGNMENT_PATH) -> bool:
     """
     Enrich pacs_agg with NAICS via PrimCode + org-level override.
 
@@ -157,7 +198,7 @@ def map_pacs(cycle: int) -> bool:
     """
     pacs_path = DERIVED_DIR / f"{cycle:02d}" / "pacs_agg.parquet"
     committees_path = CLEAN_DIR / f"{cycle:02d}" / "committees.parquet"
-    output_path = DERIVED_DIR / f"{cycle:02d}" / "pacs_agg_enriched.parquet"
+    output_path = DERIVED_DIR / f"{cycle:02d}" / f"pacs_agg_enriched{suffix}.parquet"
 
     if not pacs_path.exists():
         print(f"  [SKIP] pacs_agg.parquet not found")
@@ -166,12 +207,13 @@ def map_pacs(cycle: int) -> bool:
         print(f"  [SKIP] committees.parquet not found for cycle {cycle}")
         return False
 
-    naics_path = str(NAICS_ASSIGNMENT_PATH).replace("\\", "/")
+    naics_path = str(naics_assignment_path).replace("\\", "/")
     org_aliases_path = str(ORG_ALIASES_PATH).replace("\\", "/")
     catcode_path = str(CATCODE_NAICS_PATH).replace("\\", "/")
     in_path = str(pacs_path).replace("\\", "/")
     cmte_path = str(committees_path).replace("\\", "/")
     out_path = str(output_path).replace("\\", "/")
+    final_out_path = str(output_path).replace("\\", "/")
 
     con = duckdb.connect()
 
@@ -187,7 +229,19 @@ def map_pacs(cycle: int) -> bool:
             org_naics AS (
                 SELECT org_id,
                        PRINTF('%d', CAST(assigned_naics3 AS INTEGER)) as assigned_naics3,
-                       assigned_naics3_name
+                       assigned_naics3_name,
+                       assignment_method as org_assignment_method,
+                       assignment_confidence as org_assignment_confidence,
+                       NULLIF(llm_consensus, '') as org_llm_consensus,
+                       llm_rounds as org_llm_rounds,
+                       top_realcode as org_top_realcode,
+                       top_realcode_share as org_top_realcode_share,
+                       CASE
+                           WHEN assignment_method IN ('deterministic', 'hardcoded') THEN 'TIER1'
+                           WHEN assignment_method IN ('llm_assigned', 'manual_override', 'validation_override') THEN 'TIER2'
+                           WHEN assignment_method IN ('special_code', 'no_realcode', 'unknown') THEN 'TIER3'
+                           ELSE NULL
+                       END as org_assignment_tier
                 FROM read_csv('{naics_path}')
                 WHERE assigned_naics3 IS NOT NULL
                   AND TRY_CAST(assigned_naics3 AS INTEGER) >= 100
@@ -209,6 +263,13 @@ def map_pacs(cycle: int) -> bool:
                 -- override: org-level
                 on_.assigned_naics3 as org_naics3,
                 on_.assigned_naics3_name as org_naics3_name,
+                on_.org_assignment_method,
+                on_.org_assignment_confidence,
+                on_.org_llm_consensus,
+                on_.org_llm_rounds,
+                on_.org_assignment_tier,
+                on_.org_top_realcode,
+                on_.org_top_realcode_share,
                 -- final
                 COALESCE(on_.assigned_naics3, bc.naics3) as naics3,
                 COALESCE(on_.assigned_naics3_name, bc.naics3_name) as naics3_name,
@@ -216,7 +277,16 @@ def map_pacs(cycle: int) -> bool:
                     WHEN on_.assigned_naics3 IS NOT NULL THEN 'org_level'
                     WHEN bc.naics3 IS NOT NULL THEN 'primcode'
                     ELSE NULL
-                END as naics_source
+                END as naics_source,
+                CASE
+                    WHEN on_.assigned_naics3 IS NOT NULL AND on_.org_assignment_method = 'llm_assigned' AND on_.org_llm_consensus IS NOT NULL
+                        THEN 'org_level:llm_assigned:' || on_.org_llm_consensus
+                    WHEN on_.assigned_naics3 IS NOT NULL
+                        THEN 'org_level:' || on_.org_assignment_method
+                    WHEN bc.naics3 IS NOT NULL
+                        THEN 'primcode:best_freq_share'
+                    ELSE NULL
+                END as naics_lineage
             FROM read_parquet('{in_path}') p
             -- join to get PrimCode and PAC name from committees
             LEFT JOIN read_parquet('{cmte_path}') c
@@ -242,7 +312,7 @@ def map_pacs(cycle: int) -> bool:
             SUM(CASE WHEN naics3 IS NOT NULL THEN total_amount END) as naics_dollars,
             COUNT(CASE WHEN naics_source = 'org_level' THEN 1 END) as org_level_count,
             COUNT(CASE WHEN naics_source = 'primcode'  THEN 1 END) as primcode_count
-        FROM read_parquet('{out_path}')
+        FROM read_parquet('{final_out_path}')
     """).fetch_df()
 
     s = stats.iloc[0]
@@ -253,7 +323,8 @@ def map_pacs(cycle: int) -> bool:
     print(f"        via org_level:    {s['org_level_count']:>10,.0f}")
     print(f"        via primcode:     {s['primcode_count']:>10,.0f}")
     print(f"    - $ coverage:         {100*s['naics_dollars']/s['total_dollars']:>5.1f}%")
-    print(f"    Saved: pacs_agg_enriched.parquet")
+    print(f"    Saved: {output_path.name}")
+    con.close()
     return True
 
 
@@ -264,22 +335,39 @@ def main():
         default=",".join(str(c) for c in ALL_CYCLES),
         help="Comma-separated cycles (default: all available)"
     )
+    parser.add_argument(
+        "--suffix", type=str,
+        default="",
+        help="Optional output suffix before .parquet (example: _v1001)"
+    )
+    parser.add_argument(
+        "--naics-assignment-path",
+        type=str,
+        default=os.environ.get(NAICS_ASSIGNMENT_ENV_VAR, ""),
+        help=(
+            "Optional CSV path for org-level NAICS assignments. "
+            f"Defaults to {DEFAULT_NAICS_ASSIGNMENT_PATH.relative_to(PROJECT_ROOT).as_posix()} "
+            f"or ${NAICS_ASSIGNMENT_ENV_VAR} if set."
+        ),
+    )
     args = parser.parse_args()
     cycles = [int(c.strip()) for c in args.cycles.split(",")]
+    suffix = args.suffix.strip()
+    naics_assignment_path = resolve_lookup_path(args.naics_assignment_path)
 
     print("=" * 70)
     print("STAGE 6: Industry Mapping - Apply NAICS to All Contributions")
     print("=" * 70)
     print("\nValidating inputs...")
-    validate_inputs()
+    validate_inputs(naics_assignment_path)
 
-    naics_path = str(NAICS_ASSIGNMENT_PATH)
-    print(f"\nProcessing {len(cycles)} cycles: {cycles}")
+    print(f"\nUsing assignment source: {naics_assignment_path}")
+    print(f"Processing {len(cycles)} cycles: {cycles}")
 
     for cycle in cycles:
         print(f"\nCycle {cycle}:")
-        map_indivs(cycle)
-        map_pacs(cycle)
+        map_indivs(cycle, suffix=suffix, naics_assignment_path=naics_assignment_path)
+        map_pacs(cycle, suffix=suffix, naics_assignment_path=naics_assignment_path)
 
     print("\n" + "=" * 70)
     print("Industry mapping complete!")
@@ -288,3 +376,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

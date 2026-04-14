@@ -10,8 +10,6 @@ campaign-contribution panel. A short summary appears in the repository
 
 The following decisions govern how data is classified and processed within this pipeline. These rules ensure a consistent longitudinal panel across 32+ years of election cycles.
 
-Primary coding reference for `RecipCode`/`RealCode`: [OpenSecrets OpenData User's Guide (local copy)](./UserGuide_OpenSecrets.pdf) and the [official OpenSecrets PDF](https://www.opensecrets.org/open-data/UserGuide.pdf)
-
 ### Data Sources
 We use **both PAC and individual contributions**:
 - PACs represent organized, firm-level political spending.
@@ -27,16 +25,12 @@ Contributions are tagged with a "Nature" code based on Center for Responsive Pol
 | B | Business | Core industrial political activity |
 | I | Ideological | Support for issue-based organizations |
 | L | Labor | Labor union political activity |
-| O | Other | Residual non-business / non-labor / non-ideological bucket |
-| U | Unknown | Unclassified residual bucket |
 | P | Political | Party/Leadership committee funding |
 
 Nature is determined based on the donor's context for individuals and the recipient's type for PACs:
 
 - **PACs**: Derived from the second character of `RecipCode` in the committees table (B/L/I/O/U).
 - **Individuals**: Derived from the first character of `RealCode`.
-
-Important: `nature = O` means `Other` in this harmonized coding. It does **not** mean `Open Seat`; `O = Open Seat` applies only to the separate `recip_incumbent` field.
 
 ### Direct vs Indirect (DI)
 - **Direct (D)**: Contributions made to a candidate or their committee.
@@ -55,8 +49,9 @@ Individual --> PAC --> Candidate   (count once, as PAC-->Candidate)
 Individual --> Candidate           (count once, as Indiv-->Candidate)
 PAC --> PAC --> Candidate           (risk of double-counting)
 ```
-- Drop INDIV-->PAC flows (identified by `RecipCode` starting with P/O in indivs data).
-- Drop PAC-->PAC transfers (identified by transaction `Type`).
+- In the unified final panel (`output/contributions.parquet`), drop INDIV-->PAC flows (identified by `RecipCode` starting with P/O in indivs data).
+- In the unified final panel (`output/contributions.parquet`), drop PAC-->PAC transfers (identified by transaction `Type`).
+- These double-counting filters do not apply to the individual-only geographic panel (`output/indiv_geography_panel.parquet`), which intentionally retains all individual contributions, including contributions to PACs and outside groups.
 
 ### Scope
 Entity resolution and industry mapping are scoped to the ~56 three-digit NAICS industries present in major U.S. industrial economic datasets. This creates a high-resolution bridge between political activity and sectoral economic variables.
@@ -261,6 +256,7 @@ Builds a parallel individual-only geographic panel by mapping donor Zip codes to
 ### Dependency note
 - This product branches from the Stage 6 enriched individual files.
 - It does not consume the Stage 7A final contribution panel.
+- Because this product contains only individual-side contributions, it intentionally does not apply the Stage 7A INDIV-->PAC exclusion. Contributions from individuals to PACs and outside groups remain in the geographic panel.
 
 **Output**: `output/indiv_geography_panel.parquet`
 **Script**: `src/data/build_geographic_indiv_panel.py`

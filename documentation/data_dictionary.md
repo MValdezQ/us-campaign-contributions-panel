@@ -1,8 +1,8 @@
-# Data Dictionary: Political Contributions Panel (1990–2022)
+# Data Dictionary: Political Contributions Panel (1990-2022)
 
 This document describes the schema and usage for the two primary datasets produced by this pipeline.
 
-**Last Updated:** 2026-04-08 (Nature code clarification)
+**Last Updated:** 2026-04-10 (v1.001 release-audit and lineage update)
 
 **Primary coding reference:** [OpenSecrets OpenData User's Guide (local copy)](./UserGuide_OpenSecrets.pdf) and the [official OpenSecrets PDF](https://www.opensecrets.org/open-data/UserGuide.pdf)
 
@@ -10,131 +10,102 @@ This document describes the schema and usage for the two primary datasets produc
 
 ## 1. Core Industry Panel (`contributions.parquet`)
 
-**Grain:** Donor (Industry) × Recipient × Cycle
-**Records:** ~46.3 million (individuals + PACs, all 17 cycles: 1990, 1992, ..., 2022)
-**Total Dollar Value:** ~$58.5 billion
+**Grain:** Donor industry x recipient x cycle  
+**Records:** ~46.3 million (individuals + PACs, all 17 cycles)  
 **Description:** The authoritative panel of U.S. political contributions mapped to 3-digit NAICS industries.
+
+The v1.001 private build also produces a versioned candidate file, `contributions_v1001.parquet`, with the same analytical grain and additional release-audit lineage fields.
 
 ### Schema
 
 | Column | Type | Description | NULL Meaning |
 | :--- | :--- | :--- | :--- |
-| `cycle` | int | Election year (e.g., 1990, 2022) | Never NULL |
-| `source` | str | `indiv` (Individual/employee) or `pac` (PAC/organization) | Never NULL |
-| `org_id` | str | Resolved Organization ID from entity resolution (Stage 4) | Unresolved org (rare) |
-| `orgname` | str | Standardized organization/donor name | Never NULL |
-| `naics3` | str | 3-digit NAICS industry code | Unclassifiable (ideology, party, lobbying) |
-| `naics3_name` | str | NAICS-3 industry descriptor | When naics3 is NULL |
-| `naics_source` | str | How NAICS was assigned: `org_level` (entity resolution) or `realcode` (donation category) | When naics3 is NULL |
-| `nature` | str | Harmonized contribution-nature code: `B` (Business), `L` (Labor Union), `I` (Ideological), `O` (Other), `U` (Unknown), `P` (Party/leadership committee stream) | Rare |
-| `DI` | str | Individual/PAC indicator for FEC source | Rare |
-| `total_amount` | float | Sum of contributions to this recipient in $dollars (may be negative = refund) | Never NULL |
-| `recip_id` | str | FEC Committee or Candidate ID | Never NULL |
-| `recip_name` | str | Recipient Name | Never NULL |
-| `recip_party` | str | Recipient political party: `D` (Dem), `R` (Rep), `3` (Other/Independent) | No party affiliation |
-| `recip_seat` | str | Candidate office type: `F` (Federal), `S` (State), `L` (Local), `P` (Presidential) | Non-candidate recipients (committees) |
-| `recip_incumbent` | str | Candidate status: `I` (Incumbent), `C` (Challenger), `O` (Open Seat) | Non-candidate recipients |
+| `cycle` | int | Election cycle year (for example 1990, 2022) | Never NULL |
+| `source` | str | `indiv` or `pac` | Never NULL |
+| `org_id` | str | Resolved organization ID from entity resolution | Unresolved org |
+| `orgname` | str | Standardized organization/donor name | Rare |
+| `naics3` | str | 3-digit NAICS industry code | Unclassifiable non-business flow |
+| `naics3_name` | str | NAICS-3 industry descriptor | When `naics3` is NULL |
+| `naics_source` | str | High-level NAICS source: `org_level`, `realcode`, `primcode` | When `naics3` is NULL |
+| `org_assignment_method` | str | Org-level assignment subtype: `deterministic`, `llm_assigned`, `hardcoded`, `manual_override` | Non-`org_level` row |
+| `org_assignment_confidence` | str | Confidence from org-level assignment table | Non-`org_level` row |
+| `org_llm_consensus` | str | LLM consensus class (`UNANIMOUS`, `MAJORITY`, `MAJORITY_R2`) | Non-LLM row |
+| `org_llm_rounds` | int | Number of LLM rounds used for the org-level assignment | Non-LLM row |
+| `org_assignment_tier` | str | Assignment tier (`TIER1`, `TIER2`, `TIER3`) carried into the final output | Non-`org_level` row |
+| `org_top_realcode` | str | Dominant OpenSecrets real code observed for the resolved org | No resolved org |
+| `org_top_realcode_share` | float | Share of org aliases associated with the dominant real code | No resolved org |
+| `naics_lineage` | str | Fine-grained lineage label such as `org_level:llm_assigned:UNANIMOUS` or `realcode:best_freq_share` | When `naics3` is NULL |
+| `nature` | str | Harmonized contribution-nature code: `B`, `L`, `I`, `O`, `U`, `P` | Rare |
+| `DI` | str | Direct/indirect indicator from the source data | Rare |
+| `total_amount` | float | Sum of contributions in dollars (may be negative for refunds) | Never NULL |
+| `recip_id` | str | FEC committee or candidate ID | Never NULL |
+| `recip_name` | str | Recipient name | Rare |
+| `recip_party` | str | Recipient political party (`D`, `R`, `3`) | No party affiliation |
+| `recip_seat` | str | Candidate office type | Non-candidate recipient |
+| `recip_incumbent` | str | Candidate status (`I`, `C`, `O`) | Non-candidate recipient |
 
-### Key Observations
-- **NAICS Coverage:** ~67% of records have valid NAICS-3 codes. Remaining 33% are contributions to ideology orgs, party committees, lobbying groups, etc.
-- **Negative Amounts:** Occasional refunds appear as negative contributions.
-- **Industry Mapping:** Individuals auto-classified by "real code" (FEC donation category). Top 13K organizations via LLM consensus (Stage 5).
-
-### Nature Code Note
-- `nature` is a harmonized field, not a raw OpenSecrets field copied unchanged from one source table.
-- On the PAC/outside-group side, `B/L/I/O/U` correspond to the second character of OpenSecrets `RecipCode`, where `O` means `Other` and `U` means `Unknown`.
-- On the individual side, the same harmonized buckets are derived from OpenSecrets `RealCode` prefixes in the pipeline.
-- `P` is used in this project for party/leadership-committee style flows so that party-coded money is separated from the BLIOU buckets.
-- Do not confuse `nature = O` with `recip_incumbent = O`; the former means `Other`, while the latter means `Open Seat`.
+### Notes
+- `nature` is a harmonized project field, not a raw one-to-one copy from a single source table.
+- `nature = O` means `Other`, not `Open Seat`.
+- The lineage columns are especially important for v1.001 because they make org-level method shares observable directly in the final panel.
 
 ---
 
 ## 2. Geographic Individual Panel (`indiv_geography_panel.parquet`)
 
-**Grain:** Donor County × Industry × Recipient × Cycle
-**Records:** ~8.9 million (individuals only, all 17 cycles)
-**Total Dollar Value:** ~$57.3 billion
-**Description:** Individual contributions with geographic attribution. Excludes PACs. ZIP codes mapped to county FIPS via Census 2020 ZCTA crosswalk.
+**Grain:** Donor county x industry x recipient x cycle  
+**Records:** ~8.9 million (individuals only)  
+**Description:** Individual contributions with county attribution.
+
+The v1.001 private build also produces `indiv_geography_panel_v1001.parquet`, together with county-diagnostic reports and a versioned ZIP lookup.
 
 ### Schema
 
 | Column | Type | Description | NULL Meaning |
 | :--- | :--- | :--- | :--- |
-| `cycle_id` | int | Election year (1990–2022) | Never NULL |
-| `naics3` | str | 3-digit NAICS industry code | Tier 3 org (ideology, party, lobbying) |
-| `donor_county_fips` | str | 5-digit zero-padded county FIPS code | PO Box ZIP / unmappable location |
-| `recip_id` | str | FEC Committee or Candidate ID | Never NULL |
-| `recip_party` | str | Recipient party: `D`, `R`, `3` | No party affiliation |
-| `recip_seat` | str | Office type: `F`, `S`, `L`, `P` | Committee recipient |
-| `recip_incumbent` | str | Candidate status: `I`, `C`, `O` | Committee recipient |
-| `total_amount` | float | Sum of contributions ($) | Never NULL |
+| `cycle_id` | int | Election cycle year | Never NULL |
+| `naics3` | str | 3-digit NAICS industry code | Non-business or unclassified row |
+| `donor_county_fips` | str | 5-digit county FIPS code | Unresolved ZIP / non-geocodable record |
+| `recip_id` | str | FEC committee or candidate ID | Never NULL |
+| `recip_party` | str | Recipient party | No party affiliation |
+| `recip_seat` | str | Office type | Committee recipient |
+| `recip_incumbent` | str | Candidate status | Committee recipient |
+| `total_amount` | float | Sum of contributions | Never NULL |
 
-### Data Quality Notes
+### Geography notes
+The v1.001 workflow adds supporting geography artifacts outside the parquet itself:
+- `data/lookups/zip_to_county_assignment_v1001.parquet`
+- `reports/v1_001/county_mapping_overall.csv`
+- `reports/v1_001/county_mapping_by_cycle.csv`
+- `reports/v1_001/county_mapping_by_method.csv`
+- `reports/v1_001/unmatched_zip_leaderboard.csv`
+- `reports/v1_001/unmatched_zip_taxonomy.csv`
 
-**Coverage:**
-- **Individuals:** All individual contributions from Stage 6 enrichment
-- **PACs:** Excluded (separate in `contributions.parquet`)
-- **Geographic:** ~97% of records have valid donor_county_fips (3% unmappable)
-- **Industry:** ~76% have valid naics3; 24% are Tier 3 (ideology/party/lobbying)
-
-**Known Limitations:**
-- PO Box ZIPs (`00000`, `10075`, `10150`, etc.) cannot be geographically attributed → `donor_county_fips = NULL`
-- Unresolved/unmappable ZIP codes → `donor_county_fips = NULL` (affects ~$330M in cycle 22)
-- Individuals with NULL naics3 are **included** (not filtered) — reflects legitimate non-business contributions
-
-**Stage 8 Fix (2026-03-31):**
-- Previous version: 6.4M rows (filtered WHERE naics3 IS NOT NULL, INNER JOIN on ZIP mapping)
-- Current version: 8.9M rows (+39.1% recovery)
-- Fix: Removed naics3 filter, upgraded ZIP mapping to Census ZCTA file, changed to LEFT JOIN
-- Result: All individual contributions now included; geographic attribution is NULL-safe
+The current v1.001 diagnostics map **96.8605% of rows** and **91.9004% of dollars** in the individual-enriched geography frame.
 
 ---
 
-## 3. Data Relationships & Joins
+## 3. Validation and release-audit artifacts
 
-### How to extend with external data:
+The public codebase now includes release-audit utilities and documentation for:
+- baseline freeze metrics
+- industry provenance summaries
+- stratified validation sample generation
+- validation scoring after manual adjudication
+- benchmark matrices
+- reproducible industry-drift leaderboards
 
-**Census/Economic Data:**
-```sql
-SELECT
-  indiv_geography_panel.*,
-  bds.employment, bds.payroll
-FROM indiv_geography_panel
-JOIN census_bds bds
-  ON indiv_geography_panel.naics3 = bds.naics3
-  AND indiv_geography_panel.cycle_id = bds.year
-```
-
-**County Demographics:**
-```sql
-SELECT
-  indiv_geography_panel.*,
-  county_data.population, county_data.median_income
-FROM indiv_geography_panel
-JOIN county_demographics county_data
-  ON indiv_geography_panel.donor_county_fips = county_data.fips
-```
-
-**Recipient Legislative Data:**
-- Use `recip_id` to join with FEC candidate/committee databases
-- Use `recip_party`, `recip_seat`, `recip_incumbent` for filtering
+See:
+- [pipeline.md](pipeline.md)
+- [industry_validation_protocol.md](industry_validation_protocol.md)
+- `src/release/`
+- `data/validation/org_naics_validation_sample_v1001.csv`
 
 ---
 
-## 4. Technical Notes
+## 4. Caveats
 
-- **File Format:** Apache Parquet (columnar), Snappy compression
-- **Encoding:** UTF-8 (all text columns)
-- **Tool Recommendation:** DuckDB (fastest), Pandas, or Polars for analysis
-- **Dates:** All cycles are even years (1990, 1992, ..., 2022); no off-cycle elections included
-- **FEC IDs:** `C` prefix = Committee, `H`/`S`/`P` prefix = Candidate; length varies
-
----
-
-## 5. Data Caveats
-
-1. **Double-Counting (Mitigated):** Individual donations itemized separately by amount may appear as multiple rows if split across recipients/cycles. Stage 7 applies deduplication logic.
-2. **Industry Assignment Confidence:** Org-level (Stage 5 LLM) > realcode-level (auto); see `naics_source` column.
-3. **Party Coding:** `3` = Independent/No Party; some candidates file with no party affiliation.
-4. **Lobbying Firms:** Categorized as `nature=I` (Ideology) with NULL naics3, separate from business firms.
-5. **Non-Itemized Contributions:** Excluded (under $200 threshold in FEC data).
+1. The validation sample and scoring workflow now exist, but substantive validation accuracy still depends on manual adjudication.
+2. County coverage is high but not exhaustive; use the county diagnostics rather than assuming perfect geographic exhaustiveness.
+3. Lineage columns improve transparency, but they do not by themselves certify correctness; they identify how each assignment entered the final panel.
+4. Versioned candidate outputs (`*_v1001.parquet`) are release-build artifacts, while archival distribution remains through Zenodo.

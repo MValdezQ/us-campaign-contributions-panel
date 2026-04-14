@@ -1,0 +1,10 @@
+scope,n_reviewed,exact_3digit_match_rate,exact_2digit_match_rate,weighted_3digit_match_rate,weighted_2digit_match_rate,assignment_method,llm_consensus
+overall,326,85.8896,85.8896,83.2071,83.2071,,
+by_assignment_method,74,94.5946,94.5946,78.7784,78.7784,deterministic,
+by_assignment_method,50,68.0,68.0,40.0356,40.0356,hardcoded,
+by_assignment_method,149,85.2349,85.2349,95.4262,95.4262,llm_assigned,
+by_assignment_method,13,69.2308,69.2308,75.7327,75.7327,manual_override,
+by_assignment_method,40,100.0,100.0,100.0,100.0,special_code,
+by_llm_consensus,50,86.0,86.0,90.4543,90.4543,,MAJORITY
+by_llm_consensus,24,75.0,75.0,97.6594,97.6594,,MAJORITY_R2
+by_llm_consensus,75,88.0,88.0,95.3926,95.3926,,UNANIMOUS

@@ -12,6 +12,7 @@ This database serves as the authoritative object for multi-cycle political econo
 
 from pathlib import Path
 from typing import Dict
+import uuid
 import duckdb
 import pandas as pd
 
@@ -25,14 +26,14 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 ALL_CYCLES = ["90", "92", "94", "96", "98", "00", "02", "04", "06", "08", "10", "12", "14", "16", "18", "20", "22"]
 
 
-def process_indivs(cycle: str) -> tuple[int, float, int, float]:
+def process_indivs(cycle: str, input_suffix: str = "", tmp_token: str = "run") -> tuple[int, float, int, float]:
     """Process individual contributions for a single cycle.
 
     Filters INDIV→PAC flows, joins committees and candidates, derives nature.
     Returns: (rows_kept, $ kept, rows_filtered_indiv_pac, $ filtered_indiv_pac)
     """
     cycle_dir = DATA_DIR / "clean" / cycle
-    indivs_path = str((DATA_DIR / "derived" / cycle / "indivs_agg_enriched.parquet")).replace("\\", "/")
+    indivs_path = str((DATA_DIR / "derived" / cycle / f"indivs_agg_enriched{input_suffix}.parquet")).replace("\\", "/")
     cmte_path = str((cycle_dir / "committees.parquet")).replace("\\", "/")
     cand_path = str((cycle_dir / "candidates.parquet")).replace("\\", "/")
 
@@ -51,7 +52,7 @@ def process_indivs(cycle: str) -> tuple[int, float, int, float]:
     filtered_amount = float(filtered_stats.iloc[0, 1]) if filtered_stats.iloc[0, 1] is not None else 0.0
 
     # Main processing: filter, join, derive, and write to temp parquet
-    tmp_path = str((DATA_DIR / "derived" / cycle / "indivs_final_tmp.parquet")).replace("\\", "/")
+    tmp_path = str((DATA_DIR / "derived" / cycle / f"indivs_final{input_suffix}_{tmp_token}_tmp.parquet")).replace("\\", "/")
 
     con.execute(f"""
         COPY (
@@ -71,6 +72,14 @@ def process_indivs(cycle: str) -> tuple[int, float, int, float]:
                 i.naics3,
                 i.naics3_name,
                 i.naics_source,
+                i.org_assignment_method,
+                i.org_assignment_confidence,
+                i.org_llm_consensus,
+                i.org_llm_rounds,
+                i.org_assignment_tier,
+                i.org_top_realcode,
+                i.org_top_realcode_share,
+                i.naics_lineage,
                 CASE
                     WHEN UPPER(SUBSTRING(COALESCE(i.RealCode, ''), 1, 1)) = 'J' THEN 'I'
                     WHEN UPPER(SUBSTRING(COALESCE(i.RealCode, ''), 1, 1)) = 'Z' THEN 'P'
@@ -116,14 +125,14 @@ def process_indivs(cycle: str) -> tuple[int, float, int, float]:
     return kept_rows, kept_amount, filtered_rows, filtered_amount
 
 
-def process_pacs(cycle: str) -> tuple[int, float, int, float]:
+def process_pacs(cycle: str, input_suffix: str = "", tmp_token: str = "run") -> tuple[int, float, int, float]:
     """Process PAC contributions for a single cycle.
 
     Filters PAC→PAC transfers (Type='24A'), joins committees and candidates, derives nature.
     Returns: (rows_kept, $ kept, rows_filtered_pac_pac, $ filtered_pac_pac)
     """
     cycle_dir = DATA_DIR / "clean" / cycle
-    pacs_path = str((DATA_DIR / "derived" / cycle / "pacs_agg_enriched.parquet")).replace("\\", "/")
+    pacs_path = str((DATA_DIR / "derived" / cycle / f"pacs_agg_enriched{input_suffix}.parquet")).replace("\\", "/")
     cmte_path = str((cycle_dir / "committees.parquet")).replace("\\", "/")
     cand_path = str((cycle_dir / "candidates.parquet")).replace("\\", "/")
 
@@ -142,7 +151,7 @@ def process_pacs(cycle: str) -> tuple[int, float, int, float]:
     filtered_amount = float(filtered_stats.iloc[0, 1]) if filtered_stats.iloc[0, 1] is not None else 0.0
 
     # Main processing: filter, join, derive, and write to temp parquet
-    tmp_path = str((DATA_DIR / "derived" / cycle / "pacs_final_tmp.parquet")).replace("\\", "/")
+    tmp_path = str((DATA_DIR / "derived" / cycle / f"pacs_final{input_suffix}_{tmp_token}_tmp.parquet")).replace("\\", "/")
 
     con.execute(f"""
         COPY (
@@ -162,6 +171,14 @@ def process_pacs(cycle: str) -> tuple[int, float, int, float]:
                 p.naics3,
                 p.naics3_name,
                 p.naics_source,
+                p.org_assignment_method,
+                p.org_assignment_confidence,
+                p.org_llm_consensus,
+                p.org_llm_rounds,
+                p.org_assignment_tier,
+                p.org_top_realcode,
+                p.org_top_realcode_share,
+                p.naics_lineage,
                 CASE
                     WHEN UPPER(SUBSTRING(COALESCE(c.RecipCode, 'B'), 2, 1)) = 'B' THEN 'B'
                     WHEN UPPER(SUBSTRING(COALESCE(c.RecipCode, 'B'), 2, 1)) = 'L' THEN 'L'
@@ -199,7 +216,7 @@ def process_pacs(cycle: str) -> tuple[int, float, int, float]:
     return kept_rows, kept_amount, filtered_rows, filtered_amount
 
 
-def main(cycles=None):
+def main(cycles=None, input_suffix: str = "", output_name: str = "contributions.parquet"):
     """Process all cycles and produce output/contributions.parquet."""
     if cycles is None:
         cycles = ALL_CYCLES
@@ -210,6 +227,7 @@ def main(cycles=None):
     print()
 
     temp_files = []
+    tmp_token = uuid.uuid4().hex[:8]
 
     # Cycle-level stats for final summary
     all_stats = {
@@ -229,13 +247,13 @@ def main(cycles=None):
 
         # Process indivs
         try:
-            indiv_kept, indiv_amt, indiv_filt, indiv_amt_filt = process_indivs(cycle)
+            indiv_kept, indiv_amt, indiv_filt, indiv_amt_filt = process_indivs(cycle, input_suffix=input_suffix, tmp_token=tmp_token)
             all_stats['indiv_rows_kept'] += indiv_kept
             all_stats['indiv_amount_kept'] += indiv_amt
             all_stats['indiv_rows_filtered'] += indiv_filt
             all_stats['indiv_amount_filtered'] += indiv_amt_filt
 
-            tmp_indiv = DATA_DIR / "derived" / cycle / "indivs_final_tmp.parquet"
+            tmp_indiv = DATA_DIR / "derived" / cycle / f"indivs_final{input_suffix}_{tmp_token}_tmp.parquet"
             temp_files.append(tmp_indiv)
 
             print(f"  Indivs: {indiv_kept:,} rows, ${indiv_amt:,.2f}")
@@ -246,13 +264,13 @@ def main(cycles=None):
 
         # Process PACs
         try:
-            pac_kept, pac_amt, pac_filt, pac_amt_filt = process_pacs(cycle)
+            pac_kept, pac_amt, pac_filt, pac_amt_filt = process_pacs(cycle, input_suffix=input_suffix, tmp_token=tmp_token)
             all_stats['pac_rows_kept'] += pac_kept
             all_stats['pac_amount_kept'] += pac_amt
             all_stats['pac_rows_filtered'] += pac_filt
             all_stats['pac_amount_filtered'] += pac_amt_filt
 
-            tmp_pac = DATA_DIR / "derived" / cycle / "pacs_final_tmp.parquet"
+            tmp_pac = DATA_DIR / "derived" / cycle / f"pacs_final{input_suffix}_{tmp_token}_tmp.parquet"
             temp_files.append(tmp_pac)
 
             print(f"  PACs: {pac_kept:,} rows, ${pac_amt:,.2f}")
@@ -269,8 +287,7 @@ def main(cycles=None):
     # Union all temp files
     if temp_files:
         temp_paths = [str(f).replace("\\", "/") for f in temp_files]
-        output_path = str(OUTPUT_DIR / "contributions.parquet").replace("\\", "/")
-
+        output_path = str(OUTPUT_DIR / output_name).replace("\\", "/")
         con = duckdb.connect()
 
         # Union via read_parquet with list
@@ -342,8 +359,11 @@ def main(cycles=None):
         print(f"Cleaning up {len(temp_files)} temporary files...")
         for tmp_file in temp_files:
             if tmp_file.exists():
-                tmp_file.unlink()
-                print(f"  Deleted {tmp_file.name}")
+                try:
+                    tmp_file.unlink()
+                    print(f"  Deleted {tmp_file.name}")
+                except PermissionError:
+                    print(f"  [WARN] Could not delete {tmp_file.name}; file is locked by another process")
 
     # Final summary
     print()
@@ -365,7 +385,7 @@ def main(cycles=None):
     print(f"  Indivs: {all_stats['indiv_rows_kept']:,} rows, ${all_stats['indiv_amount_kept']:,.2f}")
     print(f"  PACs: {all_stats['pac_rows_kept']:,} rows, ${all_stats['pac_amount_kept']:,.2f}")
     print()
-    print(f"Output: {OUTPUT_DIR / 'contributions.parquet'}")
+    print(f"Output: {OUTPUT_DIR / output_name}")
     print()
     print("Stage 7 complete! [OK]")
 
@@ -380,8 +400,18 @@ if __name__ == "__main__":
         default=None,
         help="Cycles to process (e.g. --cycles 20 22). Defaults to all 17 cycles.",
     )
+    parser.add_argument(
+        "--input-suffix",
+        default="",
+        help="Optional suffix for enriched stage-6 inputs (example: _v1001).",
+    )
+    parser.add_argument(
+        "--output-name",
+        default="contributions.parquet",
+        help="Output parquet filename (default: contributions.parquet).",
+    )
     args = parser.parse_args()
 
     # Expand --cycles 20 22 into ["20", "22"]
     cycles_to_run = args.cycles if args.cycles else None
-    main(cycles=cycles_to_run)
+    main(cycles=cycles_to_run, input_suffix=args.input_suffix, output_name=args.output_name)
