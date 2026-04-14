@@ -19,6 +19,9 @@ The final output consists of two enriched, contribution-level databases:
 1.  **Core Industry Panel (`contributions.parquet`)**: donor industry × recipient × cycle. (~46.3M records, individuals + PACs).
 2.  **Geographic Individual Panel (`indiv_geography_panel.parquet`)**: donor county × industry × recipient × cycle. (~8.9M records, individuals only; retains individual contributions to PACs/outside groups).
 
+Versioned release archives for all published dataset versions are available on Zenodo:
+- **DOI:** https://doi.org/10.5281/zenodo.19335724
+
 ---
 
 ## 3. Pipeline Stages
